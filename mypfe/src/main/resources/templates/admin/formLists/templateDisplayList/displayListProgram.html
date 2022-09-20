@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>program list</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+
+		<div class="container">
+		
+		
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>Program </h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#"
+									th:href="@{/admin/dashboard}">Home</a></li>
+								<li class="breadcrumb-item active"
+									th:href="@{/admin/formLists/profileForm}">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+		
+			<div class="card">
+				<div class="card-header bg-primary">
+					<h4 class="card-title"><i style="color: black" class="fa fa-list-alt" aria-hidden="true"></i> Program list</h4>
+				</div>
+				
+				
+				
+				
+				<div class="card-body">
+				
+					  <div id="myDiv" class="modal-footer justify-content-between">
+			  
+			              	<a href="#"  th:href="@{/admin/formLists/addprogram}" class="btn btn-success">
+										     <i class="fa fa-plus-circle" aria-hidden="true"> Add new</i>
+										</a>
+							
+				          
+
+				
+						<div class="col-12 col-lg-6">
+						
+							<nav class="navbar navbar-expand navbar-white navbar-light">
+								<!-- Left navbar links -->
+
+
+								<!-- Right navbar links -->
+								<ul class="navbar-nav ml-auto">
+									<!-- Navbar Search -->
+									<li class="nav-item"><a class="nav-link"
+										data-widget="navbar-search" data-target="#navbar-search5"
+										href="#" role="button"> <i class="fas fa-search"></i>
+									</a>
+										<div class="navbar-search-block navbar-search-open"
+											id="navbar-search5" style="display: flex;">
+											<form action="#" method="get"
+						th:action="@{/admin/formLists/templateDisplayList/showProgram}">
+										
+												<div class="input-group">
+													<input class="form-control"
+														type="search" name="keyword" th:value="${keyword}"
+														placeholder="Search by program name" aria-label="Search">
+													<div class="input-group-append">
+														<button class="btn btn-navbar" type="submit">
+															<i class="fas fa-search" style="color: navy;"></i>
+														</button>
+														<button class="btn btn-navbar" type="button"
+															data-widget="navbar-search">
+															<i class="fas fa-times"></i>
+														</button>
+													</div>
+												</div>
+											</form>
+										</div></li>
+
+								</ul>
+							</nav>
+						</div>
+
+				
+					</div>
+       <div class="card-body">
+								<div class="col-sm-12">
+
+					<table class="table table-sm table-hover">
+						<thead class="table table-dark">
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Abbreviation</th>
+								<th>Adress</th>
+								<th>City</th>
+								<th>Description</th>
+								<th>Start</th>
+								<th>End</th>
+								<th>Category</th>
+								<th>Action</th>
+							</tr>
+
+
+
+						</thead>
+						<tr th:each="pg : ${programs}">
+							<td th:text="${pg.id}"></td>
+							<td th:text="${pg.name}"></td>
+							<td th:text="${pg.abbreviation}"></td>
+							<td th:text="${pg.adress}"></td>
+							<td th:text="${pg.city}"></td>
+							<td th:text="${pg.description}"></td>
+							<td th:text="${pg.startdate}"></td>
+							<td th:text="${pg.enddate}"></td>
+							<td>[[${pg.category.name}]]</td>
+							<!-- 								<td th:text="${pg.category.name}"></td> -->
+							<td>
+								<div class="btn-group" role="group"
+									aria-label="Basic mixed styles example">
+									<a class="btn btn-warning"
+										th:href="@{/admin/formLists/updateprogram(id=${pg.id})}">
+										<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+									</a> <a
+										th:href="@{/admin/formLists/templateDisplayList/deleteProgram2(id=${pg.id}, keyword=${keyword},page=${currentPage},size=${size})}"
+										onclick="return confirm('Are sure you want to delete?')"
+										class="btn btn-danger ml-1"> <i class="fa fa-trash"
+										aria-hidden="true"></i></a>
+
+								</div>
+							</td>
+						</tr>
+					</table>
+					</div>
+					</div>
+					<div class="card-footer clearfix">
+
+						<ul  class="pagination">
+
+							<li class="paginate_button page-item" th:if="${currentPage}">
+							<a  href="#"
+								th:href="@{/admin/formLists/templateDisplayList/showProgram?page={prev}(prev=${prev})}"
+									aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">
+									Previous </a></li>
+
+							<li th:each="page,status:${pages}" class="page-item"><a class="page-link"
+								th:class="${status.index==currentPage?'btn btn-primary':'btn'}"
+								th:href="@{/admin/formLists/templateDisplayList/showProgram(page=${status.index},keyword=${keyword}, size=${size})}"
+								th:text="${status.index}" aria-controls="example1" data-dt-idx="0" tabindex="0"></a></li>
+							<li  class="page-item" th:if="${pages}">
+							<a class="page-link"  href="#"
+								th:href="@{/admin/formLists/templateDisplayList/showProgram?page={next}(next=${next})}">
+									Next</a></li>
+						</ul>
+					</div>
+
+
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+</body>
+</html>

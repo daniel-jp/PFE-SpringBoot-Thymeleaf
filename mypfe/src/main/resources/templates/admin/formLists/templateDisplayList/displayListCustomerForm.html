@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>add a new customer</title>
+
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+		
+	
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>Invitation to an event</h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+			
+			
+			
+			<div class="card card-primary">
+				<div class="card-header">
+					<h3 class="card-title">Stundent registration form</h3>
+				</div>
+				<!-- /.card-header -->
+				<div class="card-body">
+
+					<form action="#">
+						<div class="row">
+							<div class="col-sm-6">
+								<!-- text input -->
+								<div class="form-group">
+									<label>First name</label> <input type="text"
+										class="form-control" placeholder="Enter first name">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Last name</label> <input type="text"
+										class="form-control" placeholder="Enter last name" >
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+						
+						<div class="col-sm-6">
+								<div class="form-group">
+								<label>Email</label> <input type="email"
+										class="form-control" placeholder="Enter  email ex : cnrst@cn.ac.ma">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label> Phone number  </label> <input type="text"
+										class="form-control" placeholder=" (000) 000-000 ">
+								</div>
+							</div>
+	                        </div>
+
+						<div class="row">
+							<div class="col-sm-8">
+								<!-- text input -->
+								<div class="form-group">
+									<label>Address</label> 
+									<textarea rows="3"  	class="form-control" placeholder="Street Address"></textarea>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group">
+				                  <label>Postal / Zip Code</label>
+				                 <input type="text"
+										class="form-control" placeholder="Ex: 12 ">
+				                </div>
+									
+								</div>
+							</div>
+				
+
+					
+
+
+
+						<div class="row">
+						
+								<div class="col-sm-6">
+								<div class="form-group">
+									<label>State / Province </label> <input type="text"
+										class="form-control" placeholder="Enter ...">
+								</div>
+							</div>
+							
+							<div class="col-sm-3">
+								<!-- text input -->
+								<div class="form-group">
+									<label>City</label> <input type="text" class="form-control"
+										placeholder="Enter city">
+								</div>
+							</div>
+					
+							
+					   <div class="col-sm-3">
+								<div class="form-group">
+				                  <label>Country</label>
+				                  <select  class="form-control">
+				                    <option>Angola</option>
+				                    <option >Moroc</option>
+				                    <option>French</option>
+				                    <option >Portugal</option>
+				                    </select>
+				                </div>
+									
+								</div>
+					
+
+						</div>
+
+
+					
+						<div id="myDiv"
+							class="modal-footer justify-content-between">
+							<button type="reset" class="btn btn-warning">Clear</button>
+
+							<button type="submit" class="btn btn-primary">
+								<i class="fa fa-plus-circle" aria-hidden="true"></i> Save
+							</button>
+						</div>
+					</form>
+
+				</div>
+				<!-- /.card-body -->
+
+</div>
+
+			
+
+
+</div>
+</div>
+
+</body>
+</html>

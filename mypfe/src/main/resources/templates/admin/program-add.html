@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>add program</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>General Form</h1>
+					</div>
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-sm-right">
+							<li class="breadcrumb-item"><a href="#">Home</a></li>
+							<li class="breadcrumb-item active">General Form</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+      </section>
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<!-- left column -->
+					<div class="col-md-6">
+						<!-- general form elements disabled -->
+						<div class="card card-success">
+							<div class="card-header">
+								<h3>Program form</h3>
+							</div>
+							<!-- /.card-header -->
+							<div class="card-body">
+							
+					   <form>
+							<div class="col-sm-6">
+										<!-- text input -->
+										<div class="form-group">
+											<label for="logo">Logo</label> <img id="logo">
+									</div>
+							        </div>
+
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label for="userName">Name</label> <input type="email"
+													class="form-control" placeholder="Name">
+										</div>
+								</div>
+
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label for="userName">Abbreviation</label> <input
+													type="text" class="form-control" placeholder="Name">
+									</div>
+								</div>
+							</div>
+
+									<!-- textarea -->
+						  <div class="form-group">
+									 <label for="userName">Description</label>
+										<textarea rows="" class="form-control" id="logo" 
+											cols="" placeholder="Enter adress">
+									</textarea>
+
+							</div>
+
+                                <div class="row">
+										<div class="col-sm-6">
+											<!-- text input -->
+											<div class="form-group">
+												<label for="exampleInputEmail1">Start date</label> <input
+													type="date" class="form-control" placeholder="Enter start-date">
+											</div>
+								</div>
+
+									<div class="col-sm-6">
+											<div class="form-group">
+												<label for="userName">End date</label> <input type="date"
+													class="form-control"
+													placeholder=" Enter end-date">
+											</div>
+										</div>
+							</div>
+
+								<div class="form-group">
+										<label>City</label> <input type="text" class="form-control"
+											name="city" />
+								</div>
+
+									<div class="form-group">
+										<label for="logo">Address</label>
+										<textarea rows="" class="form-control" id="logo" 
+											cols="" placeholder="Enter adress"></textarea>
+									</div>
+									<div class="card-footer">
+										<button type="submit" class="btn btn-primary">Save</button>
+				        	</div>
+				</form>
+			</div>
+		  </div>
+    	</div>
+
+        </div>
+	   </div>
+   </section>
+   
+   
+   
+
+   
+   
+   
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>Satisfaction questionnaire</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>Customer satisfaction questionnaire</h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+
+
+
+			<div class="card">
+				<div class="card-header bg-info">
+					<h3 class="text-center">Customer satisfaction questionnaire</h3>
+					<h5 class="text-center">Your opinion interests us !</h5>
+				</div>
+				<div class="row justify-content-center ">
+					<form action="#">
+						<!-- /.card-header -->
+
+						<div class="card-body p-4" style="overflow-x: auto;">
+							<h5 class="text-center">How often do you use [company name]
+								products or services?</h5>
+
+							<table class="table table-bordered" style="width: auto">
+								<thead>
+									<tr>
+										<th style="width: 10px"></th>
+
+										<th style="background-color: #d6dbdf">Daily</th>
+										<th style="background-color: #d6dbdf">Every week</th>
+										<th style="background-color: #d6dbdf">Once a month</th>
+										<th style="background-color: #d6dbdf">Every 2 or 3 months</th>
+										<th style="background-color: #d6dbdf">2 or 3 times a year</th>
+										<th style="background-color: #d6dbdf">Never</th>
+
+										<!--    <th style="width: 40px">Label</th> -->
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="background-color: #d6dbdf">Frequency</td>
+
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio1">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio1">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio1">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio1">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio1">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio1">
+											</div>
+										</td>
+
+
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- /.card-body -->
+
+
+						<div class="card-body" style="overflow-x: auto">
+							<h5 class="text-center">What is the overall level of
+								satisfaction with [company name]'s service?</h5>
+
+							<table class="table table-bordered" style="width: auto">
+								<thead>
+									<tr>
+										<th style="width: 10px"></th>
+
+										<th style="background-color: #d6dbdf">Very satisfied</th>
+										<th style="background-color: #d6dbdf">Satisfied</th>
+										<th style="background-color: #d6dbdf">Neutral</th>
+										<th style="background-color: #d6dbdf">Dissatisfied</th>
+										<th style="background-color: #d6dbdf">Very unsatisfied</th>
+
+
+										<!--    <th style="width: 40px">Label</th> -->
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="background-color: #d6dbdf">Reliability</td>
+
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio2">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio2">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio2">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio2">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio2">
+											</div>
+										</td>
+
+
+
+									</tr>
+
+									<tr>
+										<td style="background-color: #d6dbdf">Speed</td>
+
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio3">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio3">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio3">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio3">
+											</div>
+										</td>
+										<td>
+											<div class="row justify-content-center">
+												<input type="radio" name="radio3">
+											</div>
+										</td>
+
+
+
+									</tr>
+								</tbody>
+							</table>
+							
+							
+							
+						<div class="col-sm-6">
+							<!-- radio -->
+							<div class="form-group">
+								<label> Will you use our customer service in the future?</label>
+								<div>
+
+									<div class="custom-control custom-radio">
+										<input type="radio" name="customRadio4"> <span>
+											Yes </span>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" name="customRadio4"> <span>
+											No </span>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" name="customRadio4"> <span>
+											Maybe</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<label> Would you recommend [company name] to a friend,
+								colleague or family member?”</label>
+							<!-- radio -->
+							<div>
+								<div class="custom-control custom-radio">
+									<input type="radio" name="customRadio5"> <span>
+										Yes</span>
+								</div>
+
+								<div class="custom-control custom-radio">
+
+									<input type="radio" name="customRadio5"> <span>
+										No</span>
+								</div>
+								<div class="custom-control custom-radio">
+
+									<input type="radio" name="customRadio5"> <span>
+										Maybe</span>
+
+								</div>
+							</div>
+							
+							
+						</div>
+
+						<div class="form-group">
+							<label>Do you have any comments or suggestions for
+								improvement?</label>
+							<textarea class="form-control" rows="3"
+								placeholder="Enter comments or suggestions for improvement"></textarea>
+						</div>
+							
+							
+						<div id="myDiv" class="modal-footer justify-content-between">
+							<button type="reset" class="btn btn-warning">Clear</button>
+
+							<button type="submit" class="btn btn-primary">
+								<i class="fa fa-plus-circle" aria-hidden="true"></i> I give my
+								opinion !
+							</button>
+						</div>
+
+							
+						</div>
+
+
+
+
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title layout:title-pattern="$CONTENT_TITLE - $DECORATOR_TITLE">Admin</title>
+
+
+<link th:rel="stylesheet" th:href="@{/admin/dist/css/bootstrap.min.css}" />
+<link th:rel="stylesheet" th:href="@{/admin/dist/css/tether.min.css}" />
+<link th:rel="stylesheet"
+	th:href="@{/admin/dist/css/font-awesome/css/font-awesome.min.css}" />
+<link th:rel="stylesheet" th:href="@{/admin/dist/css/form_builder.css}" />
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+
+
+<style th:replace="/admin/share/style"></style>
+
+<title>Admin layout</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+		<div th:replace="/admin/share/header"></div>
+		<div th:replace="/admin/share/left_side"></div>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<div layout:fragment="content"> </div>
+		</div>
+		<div th:replace="/admin/share/footer"></div>
+		<div th:replace="/admin/share/script"></div>
+		<div th:fragment="script"></div>
+	</div>
+</body>
+</html>

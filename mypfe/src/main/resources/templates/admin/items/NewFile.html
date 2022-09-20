@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>header</title>
+
+<style>
+input {
+	display: block;
+}
+</style>
+
+</head>
+<body>
+
+	<div layout:fragment="content" >
+		<div class="container">
+		
+		<div class="card">
+			
+								<div class="card-header">
+										<div class="input-group mb-3  justify-content-between">
+									
+									   <h4 id="title1" th:utext="${iHeader.title}" th:value="${iHeader?.title}"> </h4>
+									<a href="#" role="button" class="close" data-dismiss="modal"
+									aria-label="Close"> <span aria-hidden="true">&times;</span>
+								    </a>
+								 
+							</div>
+							</div>
+
+								<div class="modal-body">
+									<form class="form-horizontal" action="#" th:action="@{/admin/items/saveHeader}" 
+										th:object="${iHeader}" method="POST">
+
+										
+
+										<div class="form-group">
+											<div class="card card-body">
+												<div class="form-group row">
+													<label class="col-sm-2 col-form-label" for="title">Subtitle</label>
+													<div class="col-sm-10" style="margin-bottom: 12px">
+														<input type="text" id="title" class="form-control"
+															name="title"th:value="${title}"
+															onKeyPress="edValueKeyPress()"
+															placeholder="Type here the tilte" />
+													</div>
+													<label class="col-sm-2 col-form-label">Type</label>
+													<div class="col-sm-10" style="margin-bottom: 12px">
+														<select id="typetitle" class="form-control"
+															name="typetitle" th:value="${typetitle}">
+															<option th:value="h1" th:text="h1"></option>
+															<option th:value="h2" th:text="h2"></option>
+															<option th:value="h3" th:text="h3"></option>
+															<option th:value="h4" th:text="h4"></option>
+															<option th:value="h5" th:text="h5"></option>
+														</select>
+													</div>
+												
+													<label class="col-sm-2 col-form-label">Color</label>
+													<div class="col-sm-10" style="margin-bottom: 12px;">
+														<input type="color" id="color" class="form-control"
+															name="color" th:value="${color}"
+															placeholder="Type here the tilte" />
+													</div>
+													
+												</div>
+												<div id="myDiv" class="modal-footer justify-content-between">
+												
+													<button type="button" class="btn btn-default bg-dark"
+														data-dismiss="modal">Close</button>
+													<button type="submit" class="btn btn-primary" name="addRow">
+
+														<i class="fa fa-plus-circle" aria-hidden="true"></i>
+														Create
+													</button>
+
+												</div>
+											</div>
+										</div>
+
+
+									</form>
+
+									<script type="text/javascript">
+										var dropzone = document.getElementById('#dropzone');
+										var add_more_fields = document.getElementById('#add_more_fields');
+										var remove_fields = document.getElementById('#remove_fields');
+
+										add_more_fields.onclick = function() {
+											var newField = document.createElement('input');
+											newField.setAttribute('type','text');
+											newField.setAttribute('name','label');
+											newField.setAttribute('class','form-control');
+											newField.setAttribute('placeholder','Another Field1');
+											dropzone.appendChild(newField);
+
+										}
+										remove_fields.onclick = function() {
+											var input_tags = dropzone.getElementsByTagName('input');
+
+											if (input_tags.length > 0) {
+
+												dropzone.removeChild(input_tags[(input_tags.length) - 1]);
+											}
+										}
+
+										function edValueKeyPress() {
+											var label = document.getElementById("title");
+											var s = label.value;
+											var label1 = document.getElementById("title1");
+											label1.innerText ="" + s;
+										}
+									</script>
+
+								</div>
+							</div>
+			
+		</div>
+	</div>
+</body>
+</html>

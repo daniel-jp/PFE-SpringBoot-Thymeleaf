@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>Stundant registration form</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+
+
+
+			<div class="card card-warning">
+				<div class="card-header">
+				
+				<div class="card-title" style=" min-width: 18rem;" th:if="${mode=='newcf'}"> <h4><i class="fa fa-address-card" aria-hidden="true"></i>  New  contact</h4> </div>
+ 				<div class="card-title" style=" min-width: 18rem;" th:if="${mode=='updatecf'}"> <h4><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update contact </h4> </div>
+					
+				</div>
+				<!-- /.card-header -->
+				<div class="card-body">
+					<form action="#" th:action="@{/admin/formLists/saveContact}" th:object="${contact}" method="post">
+						
+						<div class="col-sm-6">
+								<!-- text input -->
+								<div class="form-group"> 
+								<input type="hidden" name="id" th:value="${contact.id}"
+										class="form-control" placeholder="Enter last name">
+								</div>
+							</div>
+							
+						<div class="row">
+							<div class="col-sm-6">
+								<!-- text input -->
+								<div class="form-group"> 
+									<label>First name</label> <input type="text"  name="firstName" th:value="${contact.firstName}"
+										class="form-control" placeholder="Enter last name">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Last name</label> <input type="text"  name="lastName" th:value="${contact.lastName}"
+										class="form-control" placeholder="Enter first name">
+								</div>
+							</div> 
+						</div>
+
+
+						<div class="row">
+								<div class="col-sm-6">
+								<div class="form-group">
+									<label>E-mail</label>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i
+												class="fas fa-envelope"></i></span>
+										</div>
+										<input type="email" class="form-control"  name="email" th:value="${contact.email}"
+											placeholder="Enter ex: nammail@exemp.com">
+									</div>
+								</div>
+							</div>
+
+							<div class="col-sm-6">
+
+								<div class="form-group">
+									<label> Phone mask:</label>
+
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-phone"></i></span>
+										</div>
+										<input type="text" class="form-control"  name="phone" th:value="${contact.phone}"
+											data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;"
+											data-mask="" inputmode="text" placeholder="(___) ___-____">
+									</div>
+									<!-- /.input group -->
+								</div>
+							</div>
+
+					
+						</div>
+
+
+						<div class="form-group">
+							<label>Message</label>
+							<textarea class="form-control" rows="3"   name="message" th:field="*{message}" th:value="${contact.message}" placeholder="Enter message."></textarea>
+						</div>
+						
+						
+						<div id="myDiv"
+							class="modal-footer justify-content-between btn-outline-secondary">
+								<a  href="/admin/formLists/templates-list" class="btn btn-secondary">
+							
+							<i class="fa fa-undo" aria-hidden="true"></i> Back</a>
+							
+							<button type="reset" class="btn btn-warning">Clear</button>
+
+							<button type="submit"  class="btn btn-primary">
+								<i class="fa fa-plus-circle" aria-hidden="true"></i> Save
+							</button>
+							
+<!-- 							 <button type="submit" th:href="@{/admin/formLists/templateDisplayList/showContact}"  th:if="${mode=='Update'}" class="btn btn-success"> -->
+<!-- 								<i class="fa fa-plus-circle" aria-hidden="true"></i> Save -->
+<!-- 							</button> -->
+							
+						</div>
+
+					</form>
+				</div>
+				<!-- /.card-body -->
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

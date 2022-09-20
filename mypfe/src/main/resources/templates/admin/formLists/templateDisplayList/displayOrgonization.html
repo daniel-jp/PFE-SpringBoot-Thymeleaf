@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>Organization  list</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+
+		<div class="container">
+		
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>Display of organization </h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+		
+			<div class="card">
+				<div class="card-header">
+					<h2>Organization list</h2>
+				</div>
+				<div class="card-body">
+
+					<form action="#" method="get"
+						th:action="@{/admin/formLists/templateDisplayList/showProgram}">
+
+						<div class="col-12 col-lg-6">
+							<h4 class="mt-4">Organization name</h4>
+							<nav class="navbar navbar-expand navbar-dark navbar-light">
+								<!-- Left navbar links -->
+
+
+								<!-- Right navbar links -->
+								<ul class="navbar-nav ml-auto">
+									<!-- Navbar Search -->
+									<li class="nav-item"><a class="nav-link"
+										data-widget="navbar-search" data-target="#navbar-search5"
+										href="#" role="button"> <i class="fas fa-search"></i>
+									</a>
+										<div class="navbar-search-block navbar-search-open"
+											id="navbar-search5" style="display: flex;">
+											<form class="form-inline">
+												<div class="input-group input-group-sm">
+													<input class="form-control form-control-navbar"
+														type="search" name="keyword" th:value="${keyword}"
+														placeholder="Search" aria-label="Search">
+													<div class="input-group-append">
+														<button class="btn btn-navbar" type="submit">
+															<i class="fas fa-search" style="color: orange;"></i>
+														</button>
+														<button class="btn btn-navbar" type="button"
+															data-widget="navbar-search">
+															<i class="fas fa-times"></i>
+														</button>
+													</div>
+												</div>
+											</form>
+										</div></li>
+
+
+
+
+
+
+
+								</ul>
+							</nav>
+						</div>
+
+					</form>
+
+
+					<table class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Abbreviation</th>
+								<th>Adress</th>
+								<th>City</th>
+								<th>Description</th>
+								<th>Start</th>
+								<th>End</th>
+								<th>Category</th>
+								<th>Url</th>
+								<th>Action</th>
+							</tr>
+
+
+
+						</thead>
+						<tr th:each="org : ${orgaPages}">
+							<td th:text="${org.id}"></td>
+							<td th:text="${org.name}"></td>
+							<td th:text="${org.abbreviation}"></td>
+							<td th:text="${org.adress}"></td>
+							<td th:text="${org.city}"></td>
+							<td th:text="${org.description}"></td>
+							<td th:text="${org.startdate}"></td>
+							<td th:text="${org.enddate}"></td>
+							<td th:text="${org.category.name}"></td>
+							<td th:text="${org.url}"></td>
+							<!-- 		<td>[[${pg.category.name}]]</td>						 -->
+							<td>
+								<div class="btn-group" role="group"
+									aria-label="Basic mixed styles example">
+									<a class="btn btn-warning"
+										th:href="@{ ' /admin/formLists/updateorg/ ' + ${org.id}}">
+										<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+									</a> <a
+										th:href="@{/admin/formLists/templateDisplayList/deleteorgazation(id=${org.id}, keyword=${keyword},page=${currentPage},size=${size})}"
+										onclick="return confirm('Are sure you want to delete?')"
+										class="btn btn-danger ml-1"> <i class="fa fa-trash"
+										aria-hidden="true"></i></a>
+
+								</div>
+							</td>
+						</tr>
+					</table>
+					<div class="card-footer clearfix">
+
+						<ul class="pagination pagination-sm m-0 float-left">
+
+							<li class="page-item" th:if="${currentPage}"><a
+								class="btn btn-primary" href="#"
+								th:href="@{/admin/formLists/templateDisplayList/showOrganization?page={prev}(prev=${prev})}">
+									Prev </a></li>
+
+							<li th:each="page,status:${pages}" class="page-item"><a
+								th:class="${status.index==currentPage?'btn btn-primary':'btn'}"
+								th:href="@{/admin/formLists/templateDisplayList/showOrganization(page=${status.index},keyword=${keyword}, size=${size})}"
+								th:text="${status.index}"></a></li>
+							<li class="page-item" th:if="${pages}"><a
+								class="btn btn-primary" href="#"
+								th:href="@{/admin/formLists/templateDisplayList/showOrganization?page={next}(next=${next})}">
+									Next</a></li>
+						</ul>
+					</div>
+
+
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+</body>
+</html>

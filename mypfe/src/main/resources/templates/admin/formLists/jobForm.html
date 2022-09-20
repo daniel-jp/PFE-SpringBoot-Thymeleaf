@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>Stundant registration form</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+
+
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>Employee </h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#" th:href="@{/admin/dashboard}">Home</a></li>
+								<li class="breadcrumb-item active" th:href="@{/admin/formLists/profileForm}">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+
+
+
+			<div class="card card-primary">
+				<div class="card-header">
+				
+				<div class="card-title" style=" min-width: 18rem;" th:if="${mode=='newj'}"> <h5><i class="fa fa-plus-square-o" aria-hidden="true"></i>  New  employee evaluation</h5> </div>
+ 				<div class="card-title" style=" min-width: 18rem;" th:if="${mode=='updatej'}"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update employee Evaluation </h5> </div>
+					
+				</div>
+				<!-- /.card-header -->
+				<div class="card-body">
+
+					<form action="#" th:action="@{/admin/formLists/saveJob}"  th:object="${jobForm}" method="post">
+						<!-- text input -->
+							<div class="col-sm-6">
+								<!-- text input -->
+								<div class="form-group">
+									    <input type="hidden" name="id" th:value="${jobForm.id}"
+										class="form-control" placeholder="Enter first name">
+								</div>
+							</div>
+
+						<div class="form-group">
+							<label>Employee full name</label> <input type="text" name="fullName" th:value="${jobForm.fullName}"
+								class="form-control" placeholder="Enter full name of employee">
+						</div>
+
+
+						<div class="form-group">
+							<label>Assessor's full name</label> <input type="text"  name="assessorFullName" th:value="${jobForm.assessorFullName}"
+								class="form-control" placeholder="Enter Assessor's full name">
+						</div>
+
+
+
+
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Assessor title</label> <input type="text"  name="assessorTitle" th:value="${jobForm.assessorTitle}"
+										class="form-control" placeholder="Enter ...">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<!-- text input -->
+								<div class="form-group">
+									<label>Review Date</label> <input type="date" name="reviewDate" th:value="${jobForm.reviewDate}"
+										class="form-control" placeholder="Enter ...">
+								</div>
+							</div>
+
+						</div>
+
+					
+						<div class="form-group">
+							<fieldset style="border: 2px dotted;">
+								<legend>Job performance appraisal:</legend>
+									<div class="dataTables_paginate paging_simple_numbers"
+										id="example1_paginate">
+										<ul class="pagination">
+										<li th:each="rads : ${allradios}" class="paginate_button page-item next ml-4" 
+										id="example1_next">
+												<input class="custom-control" type="radio" th:field="*{alllever}" th:value="${rads}"/>
+											        	<label th:for="${#ids.prev('alllever')}" th:text="${rads}"> Weak </label></li>
+										</ul>
+								</div>
+							</fieldset>
+						</div>
+
+
+						<div class="form-group">
+							<label for="exampleInputBorder">Do you think about when
+								this employee stands out? </label>
+							<textarea class="form-control" rows="3" name="emplOut" th:field="*{emplOut}"
+								placeholder=" Enter if do  you think about when this employee stands out"></textarea>
+						</div>
+
+						<div class="form-group">
+							<label for="exampleInputBorderWidth2">Do you think about
+								when this employee lags behind his peers?</label>
+							<textarea class="form-control" rows="3" name="emplRetard" th:field="*{emplRetard}"
+								placeholder=" Enter if do  you think about when this employee lags behind his peers"></textarea>
+						</div>
+
+						<!-- text input -->
+						<div class="form-group">
+							<label>Do you think about when does this employee need to
+								improve?</label>
+	
+
+							<textarea class="form-control" rows="3" name="emplNeedImprove" th:field="*{emplNeedImprove}"
+								placeholder=" Enter if do you think about when does this employee need to improve"></textarea>
+
+
+						</div>
+						<div id="myDiv"
+							class="modal-footer justify-content-between btn-outline-secondary">
+								<a  href="/admin/formLists/templates-list" class="btn btn-secondary">
+							
+							<i class="fa fa-undo" aria-hidden="true"></i> Back</a>
+							
+							<button type="reset" class="btn btn-warning">Clear</button>
+
+							<button type="submit" class="btn btn-primary">
+								<i class="fa fa-plus-circle" aria-hidden="true"></i> Save
+							</button>
+						</div>
+					</form>
+
+				</div>
+				<!-- /.card-body -->
+
+				</div>
+			</div>
+		</div>
+</body>
+</html>

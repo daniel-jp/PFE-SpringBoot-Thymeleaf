@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>Invitation to an event</title>
+
+</head>
+<body>
+
+
+	<div layout:fragment="content">
+		<div class="container">
+
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>Invitation to an event</h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+			<div class="card"  
+					style="background-image: url('/img/fete.jpg'); height: 100vh; background-size: cover; background-repeat: no-repeat;">
+               
+				
+				<div class="row justify-content-center" style="margin-top:60px;">
+                   <form action="#">
+					<div class="col-sm-12">
+						<div class="bg-dark rounded h-100 p-4">
+						<h3>RSVP pour la fête des Fêtes</h3>
+							<h6 class="mb-4">Nous espérons que vous pourrez vous rendre à la fête !</h6>
+								<div class="form-floating mb-1">
+								<input type="text" class="form-control"
+									id="flastname" placeholder="First and last name"> <label
+									for="flastname">First and last name</label>
+							</div>
+							<div class="form-floating mb-1">
+								<input type="email" class="form-control" id="floatingInput"
+									placeholder="name@example.com"> <label
+									for="floatingInput">Email address</label>
+							</div>
+						
+							
+						 <div class="form-floating mb-1">
+								<input type="text" class="form-control"
+									id="invNumber" placeholder="Ex: 23"> <label
+									for="invNumber">Number of guests</label>
+							</div>
+							
+							<div class="col-sm-10">
+								<label>Will you participate?</label>
+								<div class="form-check">
+							
+									<input class="form-check-input" type="radio" name="gridRadios"
+										id="gridRadios1" value="option1" checked=""> <label
+										class="form-check-label" for="gridRadios1"> Yes </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="gridRadios"
+										id="gridRadios2" value="option2"> <label
+										class="form-check-label" for="gridRadios2">No</label>
+								</div>
+							</div>
+
+							<div class="form-floating">
+								<textarea row="3" class="form-control"
+									placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+								<label for="floatingTextarea">Comments</label>
+							</div>
+						</div>	
+						<div id="myDiv"
+							class="modal-footer justify-content-between bg-dark">
+							<button type="reset" class="btn btn-warning">Clear</button>
+
+							<button type="submit" class="btn btn-primary">
+								<i class="fa fa-plus-circle" aria-hidden="true"></i> Save
+							</button>
+						</div>
+					</div> 
+					
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

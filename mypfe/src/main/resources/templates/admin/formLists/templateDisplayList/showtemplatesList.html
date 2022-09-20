@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>input form</title>
+
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+
+
+	
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>Display of all templates </h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#" th:href="@{/admin/dashboard}">Home</a></li>
+								<li class="breadcrumb-item active" th:href="@{/admin/formLists/profileForm}">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+
+
+
+			<div class="card">
+				<div class="card-header" style="text-align: center;">
+					<h3>You can see your data record here</h3>
+					<p>this space allows you to see recorded data of the model you have chosen to record your data.</p>
+
+				</div>
+
+			</div>
+			<section class="content">
+				<div class="container-fluid">
+				
+					<div class="row">
+
+						<div class="col-lg-3 col-6">
+						
+						
+							<div class="small-box bg-navy">
+								<div class="inner">
+								
+
+									<p style="color: green;">Program</p>
+									<p>Total: </p>
+								</div>
+								<a th:href="@{/admin/formLists/templateDisplayList/showProgram}">
+								<div class="icon ">
+
+									<i   style="color: #1595f3 " class="fa fa-file-text" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/templateDisplayList/showProgram}"class="small-box-footer bg-primary">
+									show program list  <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+					
+						<div class="col-lg-3 col-6">
+							<div class="small-box bg-navy">
+								<div class="inner">
+								
+									<p style="color: green">Category </p>
+										<p>Total: </p>
+								</div>
+									<a href="#"	 th:href="@{/admin/formLists/templateDisplayList/showCateg}" >
+								<div class="icon">
+
+								<i style="color: #1595f3" class="fa fa-newspaper-o" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#" th:href="@{/admin/formLists/templateDisplayList/showCateg}"class="small-box-footer bg-primary">
+									show category list  <i class="fas fa-arrow-circle-right"  style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-6">
+					
+							<div class="small-box bg-navy">
+								<div class="inner">
+									
+
+									<p style="width:150px; color: green">Student </p>
+										<p >Total : </p>
+								</div>
+									<a th:href="@{/admin/formLists/templateDisplayList/showStudent}">
+								<div class="icon">
+
+								<i style="color: #1595f3 " class="fa fa-graduation-cap" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"   th:href="@{/admin/formLists/templateDisplayList/showStudent}" class="small-box-footer bg-primary">
+									show studant list  <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+						
+						<div class="col-lg-3 col-6">
+							<div class="small-box bg-navy">
+								<div class="inner">
+										
+
+									<p style="color: green">Job  form</p>
+									<p>Total:  </p>
+								</div>
+									<a  th:href="@{/admin/formLists/templateDisplayList/showJobForm}">
+								<div class="icon">
+
+							<i style="color: #1595f3" class="fa fa-briefcase" aria-hidden="true"></i>
+
+								</div></a>
+								<a th:href="@{/admin/formLists/templateDisplayList/showJobForm} " class="small-box-footer bg-primary">
+									show emp. evaluation list  <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+			
+					</div>
+				
+				</div>
+			</section>
+				
+		 <section class="content">
+				<div class="container-fluid">
+				
+					<div class="row">
+
+						<div class="col-lg-3 col-6">
+						
+						
+							<div class="small-box bg-navy">
+								<div class="inner">
+										
+
+									<p  style="color:  green">Contact </p>
+										<p>Total:  </p>
+								</div>
+									<a th:href="@{/admin/formLists/templateDisplayList/showContact}">
+								<div class="icon ">
+
+								<i style="color: #1595f3" class="fa fa-volume-control-phone" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/templateDisplayList/showContact}" class="small-box-footer bg-primary">
+								show contact list <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+				
+						<div class="col-lg-3 col-6">
+							
+							<div class="small-box bg-navy">
+								<div class="inner">
+									
+
+									<p style="color:green">Profile  </p>
+										<p>Total : </p>
+								</div>
+									<a th:href="@{/admin/formLists/templateDisplayList/profileForm}">
+								<div class="icon">
+
+								<i style="color: #1595f3"  class="fa fa-address-card-o" aria-hidden="true"></i>
+								</div></a>
+								<a  th:href="@{/admin/formLists/templateDisplayList/profileForm}" class="small-box-footer bg-primary">
+									use the template <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-6">
+					
+							<div class="small-box bg-navy">
+								<div class="inner">
+									
+
+									<p style="width:150px; color:green;">Business </p>
+									<p>Total: </p>
+								</div>
+									<a th:href="@{/admin/formLists/templateDisplayList/businessForm}">
+								<div class="icon">
+
+								<i style="color: #1595f3"  class="fa fa-cart-plus" aria-hidden="true"></i>
+								</div></a>
+								<a href="#" th:href="@{/admin/formLists/templateDisplayList/businessForm}" class="small-box-footer bg-primary">
+									use the template <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+					
+						<div class="col-lg-3 col-6">
+						
+							<div class="small-box bg-navy">
+								<div class="inner">
+									
+
+									<p style="color:green;">Event invitation</p>
+									<p>Total: </p>
+								</div>
+									<a th:href="@{/admin/formLists/templateDisplayList/eventInvitation}">
+								<div class="icon">
+								
+								<i  style="color: #1595f3"  class="fa fa-envelope-open-o" aria-hidden="true"></i>
+
+								</div>
+								</a>
+							      <a  th:href="@{/admin/formLists/templateDisplayList/eventInvitation}" class="small-box-footer bg-primary">
+									use the template <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+	
+					</div>
+					</div>
+				
+		
+
+
+				
+				</section>
+			
+				
+				<section class="content">
+				<div class="container-fluid">
+				
+					<div class="row">
+
+						<div class="col-lg-3 col-6">
+						
+						
+							<div class="small-box bg-navy">
+								<div class="inner">
+									
+
+									<p  style="color:green;">Holiday </p>
+										<p>Total: </p>
+								</div>
+									<a th:href="@{/admin/formLists/templateDisplayList/holidayForm}">
+								<div class="icon ">
+
+									<i style="color: #1595f3"  class="fa fa-id-card-o" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/templateDisplayList/holidayForm}" class="small-box-footer bg-primary">
+								show template list <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+					
+						
+						<div class="col-lg-3 col-6">
+						
+							<div class="small-box bg-navy">
+								<div class="inner">
+									
+
+									<p style="color:green;">Organization</p>
+										<p>Total : </p>
+								</div>
+									<a th:href="@{/admin/formLists/templateDisplayList/addOrganisation}">
+								<div class="icon">
+
+							<i  style="color: #1595f3"  class="fa fa-sitemap" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/templateDisplayList/addOrganisation}" class="small-box-footer bg-primary">
+									show template list <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-6">
+						
+							<div class="small-box bg-navy">
+								<div class="inner">
+								
+									<p style="width:150px; color:green">Customer </p>
+									<p>Total</p>
+								</div>
+									<a th:href="@{/admin/formLists/templateDisplayList/customerForm}">
+								<div class="icon">
+
+								<i style="color: #1595f3"  class="fa fa-user-plus" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#" th:href="@{/admin/formLists/templateDisplayList/customerForm}" class="small-box-footer bg-primary">
+									show template list <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+				
+						<div class="col-lg-3 col-6">
+					
+							<div class="small-box bg-navy">
+								<div class="inner">
+									
+
+									<p style="color:#6B46C1">Feedback </p>
+									<p>Total : </p>
+								</div>
+									<a th:href="@{/admin/formLists/templateDisplayList/feedbackForm}">
+								<div class="icon" >
+
+						     	<i style="color: #1595f3" class="fa fa-commenting-o" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/templateDisplayList/feedbackForm}" class="small-box-footer bg-primary">
+									show template list <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+				
+					</div>
+			
+
+				</div>
+				
+			
+
+				
+				</section>
+				
+				<section class="content">
+				<div class="container-fluid">
+				
+					<div class="row">
+
+						<div class="col-lg-3 col-6">
+						
+						
+							<div class="small-box bg-navy">
+								<div class="inner">
+								
+								<p  style="color: green;">Customer satisfaction</p>
+								<p >Total : </p>
+								</div>
+									<a th:href="@{/admin/formLists/templateDisplayList/customerSatisf}">
+								<div class="icon ">
+
+										<i  style="color: #1595f3" class="fa fa-hand-peace-o" aria-hidden="true"></i>
+							
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/templateDisplayList/customerSatisf}" class="small-box-footer bg-primary">
+								show template list <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+						
+						<div class="col-lg-3 col-6">
+						
+							<div class="small-box bg-navy">
+								<div class="inner">
+
+									<p style="color:green;" >Project Sheet</p>
+									<p>Total: </p>
+								</div>
+									<a th:href="@{/admin/formLists/projectForm}">
+								<div class="icon">
+
+						    	<i style="color: #1595f3"   class="fa fa-suitcase" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#" th:href="@{/admin/formLists/templateDisplayList/projectForm}" class="small-box-footer bg-primary">
+									show template list  <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-6">
+						
+							<div class="small-box bg-navy">
+								<div class="inner">
+								
+									<p style="width:150px; color:green" >Webinar Reg. Form</p>
+										<p>Total : </p>
+								</div>
+									<a   th:href="@{/admin/formLists/templateDisplayList/webinarRegForm}">
+								<div class="icon">
+
+									<i style="color: #1595f3" class="fa fa-video-camera" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/templateDisplayList/webinarRegForm}" class="small-box-footer bg-primary">
+								show template list <i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+					
+						<div class="col-lg-3 col-6">
+						
+							<div class="small-box bg-navy">
+								<div class="inner">
+									
+
+									<p style="color: green;"> Appointment </p>
+										<p> Total: </p>
+								</div>
+									<a th:href="@{/admin/formLists/templateDisplayList/appointmentForm}">
+								<div class="icon">
+
+								<i  style="color: #1595f3"  class="fa fa-calendar" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#" th:href="@{/admin/formLists/templateDisplayList/appointmentForm}" class="small-box-footer bg-primary">
+									show template list<i class="fas fa-arrow-circle-right" style="color: #000080;"></i>
+								</a>
+							</div>
+						</div>
+					
+					</div>
+				
+				</div>
+				
+				
+				
+				</section>
+
+	
+				
+		</div>
+	</div>
+
+</body>
+</html>

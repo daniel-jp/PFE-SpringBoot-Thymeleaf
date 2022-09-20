@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>create form</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+
+			<div class="card-header" style="text-align: center;">
+
+				<h3>Welcome to your form creation space.</h3>
+
+				<p style="width: 510px; margin-left: 230px;">This service
+					provides rich content for the best development of your business.
+					CNRST uses these services in order to streamline its daily
+					activities.</p>
+
+			</div>
+
+			<div class="card-group align-items-center" style="margin-top: 15px;">
+				<div class="card">
+					<img th:src="@{/img/f3.png}" class="d-block w-100" alt="...">
+					<div class="card-body"></div>
+					<div class="card-footer  d-flex flex-column align-items-center">
+						<h2>YOU DON'T HAVE A FORM YET!</h2>
+						<h5>After create the form it w'll show here.</h5>
+
+
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-body  d-flex flex-column align-items-center">
+						<a style="font-size: 20px;" th:href="@{/admin/generatorForm}"
+							class="btn btn-outline-success"> CREATE FORM HERE <svg
+								xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+								fill="currentColor" class="bi bi-plus-square-fill"
+								viewBox="0 0 16 16">
+							<path 	d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 
+								2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 
+								0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+							</svg>
+
+						</a>
+
+
+					</div>
+					<div class="card-footer  d-flex flex-column align-items-center">
+						<small class="text-muted">Last updated 3 mins ago</small>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

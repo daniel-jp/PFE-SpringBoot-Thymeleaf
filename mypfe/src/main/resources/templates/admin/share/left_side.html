@@ -1,0 +1,127 @@
+
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-white-primary elevation-4">
+	<!-- Brand Logo -->
+	<a href="/admin/" class="brand-link" style="background: #1c2833;"> <img
+		th:src="@{/img/cn.jpg}" alt="AdminLTE Logo"
+		class="brand-image img-circle elevation-3" style="opacity: .8">
+		<span class="brand-text font-weight-light">Admin CNRST</span>
+	</a>
+
+	<!-- Sidebar -->
+	<div class="sidebar bg-navy">
+		<!-- Sidebar user panel (optional) -->
+		<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+			<div class="image">
+				<img th:src="@{/img/Imagem1.png}" 
+					class="img-circle elevation-2" alt="User Image">
+			</div>
+			<div class="info">
+				<a href="#" class="d-block"  style="color: white;">Daniel Paulino</a>
+			</div>
+		</div>
+
+		<!-- SidebarSearch Form -->
+		<div class="form-inline bg-white">
+			<div class="input-group" data-widget="sidebar-search">
+				<input class="form-control form-control-sidebar" type="search"
+					placeholder="Search" aria-label="Search">
+				<div class="input-group-append">
+					<button class="btn btn-sidebar">
+						<i class="fas fa-search fa-fw"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Sidebar Menu -->
+		<nav class="mt-2">
+			<ul class="nav nav-pills nav-sidebar flex-column"
+				data-widget="treeview" role="menu" data-accordion="false">
+				<!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+				<li class="nav-item menu-open"><a th:href="@{/admin/dashboard}"
+					class="nav-link active"> <i
+						class="nav-icon fas fa-tachometer-alt"></i>
+						<p>
+							Dashboard  <i class="right fas fa-angle-left"></i>
+						</p>
+				</a></li>
+
+				<li class="nav-item"><a href="#" class="nav-link btn-dark"  style="color: white;"> <i
+						class="fa fa-user-circle"></i>
+						<p>
+							User <i class="right fas fa-angle-left"></i>
+						</p>
+				</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item"><a th:href="@{/admin/users/userList}"
+							class="nav-link"> <i style="color:  #229954"  class="fa fa-list-ul"></i>
+
+								<p>List user</p>
+						</a></li>
+						<li class="nav-item"><a th:href="@{/admin/users/userAdd}"
+							class="nav-link"> <i style="color:  #229954"  class="fa fa-user-plus"></i>
+
+								<p>Add user</p>
+						</a></li>
+					</ul></li>
+
+				<li class="nav-item"><a href="#" class="nav-link btn-dark" style="color: white;">
+					<i class="fa fa-database" aria-hidden="true"></i> 
+						   <p> View model data <i class="fas fa-angle-left right">  </i></p>
+				</a>
+					<ul class="nav nav-treeview">
+
+						<li class="nav-item"><a th:href="@{/admin/templateDisplayList/programlist}" class="nav-link  btn-outline-light"> 
+						<i  style="color:  #229954"  class="fa fa-list-ul"></i>
+								<p>List of user</p>
+						</a></li>
+
+						<li class="nav-item"><a th:href="@{/admin/formLists/templateDisplayList/showtemplatesList}" 
+						class="nav-link  btn-outline-light"> <i style="color:  #229954" class="fa fa-list-ul"></i>
+								  <p> Template display list</p>
+						</a></li>
+
+						<li class="nav-item"><a th:href="@{/admin/formLists/displayProgem}" class="nav-link  btn-outline-light"> 
+						<i style="color:  #229954"  class="fa fa-list-ul"></i>
+								<p>List of organization</p>
+						</a></li>
+
+					</ul></li>
+
+				<li class="nav-item"><a href="#" class="nav-link btn-dark"
+					style="color: white;"> <i  class="nav-icon fas fa-edit"></i>
+						<p>
+							Form-Builder<i class="fas fa-angle-left right "></i>
+						</p>
+				</a>
+					<ul class="nav nav-treeview" style="color: white;">
+						<li class="nav-item"><a th:href="@{/admin/createForm}" class="nav-link  btn-outline-light">
+								<p>
+									<i style="color:  #229954"  class="fa fa-window-restore"></i> Create manager form
+								</p>
+						</a>
+						</li>
+				 	<li class="nav-item">
+						<a th:href="@{/admin/items/displayForms}" class="nav-link  btn-outline-light">
+								<p>
+									<i style="color:  #229954" class="fa fa-plus-circle"></i> Testing
+								</p>
+						</a>
+						</li>
+						<li class="nav-item"><a th:href="@{/admin/createtask}" class="nav-link  btn-outline-light">
+								<p>
+									<i style="color:  #229954"  class="fa fa-cogs" aria-hidden="true"></i>  Add items
+								</p>
+						</a>
+						</li>
+
+					</ul></li>
+			</ul>
+
+		</nav>
+		<!-- /.sidebar-menu -->
+	</div>
+	<!-- /.sidebar -->
+</aside>

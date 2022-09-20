@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8" />
+<title>Spring Boot Thymeleaf Application - Bootstrap Date Time
+	Picker</title>
+
+<link th:rel="stylesheet"
+	th:href="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css}" />
+<link th:rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+<link th:rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.11.2/css/all.css} " />
+</head>
+<body>
+
+	<!-- Navigation -->
+
+
+	<div layout:fragment="content">
+
+		<div class="container">
+
+
+			<div class="container">
+				<div class="card-deck">
+					<div class="card">
+						<div class="card-header">
+							<h3>Add Items</h3>
+
+						</div>
+
+
+						<div class="card-body">
+
+							<form action="#" th:action="@{/admin/savetetask}" th:object="${task}"
+								method="post">
+								<input type="text" th:field="*{title}" placeholder=" title">
+								<br> <input type="text" th:field="*{text}"
+									placeholder=" text"> <br> <input type="submit"
+									id="submit" value="create task">
+
+							</form>
+
+							<div th:each="task:${task}" class="task " id="draggable">
+								<div class="top-text-div">
+									<p th:text="${task.title}" class="top-text title"></p>
+										<p th:text="${task.text}" class="text"></p>
+									<button class="button-edit">
+										<a th:href="@{task-update/{id}(id=${task.id})}">Edit</a>
+									</button>
+									<button class="button-delete">
+										<a th:href="@{/admin//{id}(id=${task.id})}">Delete</a>
+									</button>
+									
+								</div>
+							
+								<br>
+
+							</div>
+
+						
+ 
+						<script>
+							$(function() {
+								$("#draggable").draggable();
+							});
+						</script>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+</body>
+</html>

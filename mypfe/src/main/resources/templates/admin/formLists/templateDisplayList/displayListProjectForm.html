@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>Project Sheet</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>Project Sheet</h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+         
+         <div class="card">
+         <div class="card-header">Project Description Sheet</div>
+               <div class="card-body">
+               <form action="#">
+              
+            <div class="form-group">
+			         <label>Project Description</label>
+			                <textarea rows="2"   class="summernote form-control"  name="description" autocomplete="on">
+			             <h4>  Un bon travail de planification est la clé d'un projet de site Web réussi. Une planification de projet bien organisée fait de votre site Web l'un des outils les plus importants que vous pouvez utiliser pour vendre votre produit ou service.
+			                
+							</h4> 
+						   <p> Ce formulaire peut être rempli de manière simple ou très détaillée, mais si vous voulez réussir, vous devez vous assurer que vos clients ou utilisateurs Web potentiels peuvent facilement accéder à ce qu'ils recherchent sur votre site Web. 
+			
+								Ce plan doit également inclure tout votre contenu et votre message de marque. Les questions du guide suivantes sont conçues pour nous aider à commencer la planification.
+			           </p>  </textarea>
+			                  
+			       <div class="form-group">
+			                  <label>Tell us a bit about your business/enterprise</label>
+			                 <textarea class="form-control" rows="3" placeholder="Enter about your business/enterprise"></textarea>
+																	
+			           </div>
+			           
+			              <div class="form-group">
+			                  <label>What is your domain name?</label>
+			                 <input type="text"  class="form-control"  placeholder="Enter your domain name"/>
+																	
+			           </div>
+           
+
+           		      <div class="row">
+							<label>Do you get a hosting service?</label>
+							<!-- /.col-lg-6 -->
+							<div class="input-group  mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><input type="radio"
+										name="radio1"></span>
+								</div>
+								<input type="text" class="form-control" value="Yes">
+
+								<!-- /input-group -->
+							</div>
+							<div class="input-group  mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><input type="radio"
+										name="radio1"></span>
+								</div>
+								<input type="text" class="form-control" value="No">
+
+								<!-- /input-group -->
+							</div>
+					</div>	
+           
+                  <div class="form-group">
+                    <label>What is the purpose of your website?</label>
+                    <textarea class="form-control" rows="3" placeholder="Enter purpose of your website"></textarea>
+														
+                 </div>
+           
+           
+           
+                  <div class="form-group">
+                  <label>Could you briefly describe your target audience? (Primary and secondary)</label>
+                 <textarea class="form-control" placeholder="Enter describe your target audience"></textarea>
+														
+           </div>
+           
+                  <div class="form-group">
+                  <label>Who are your competitors? Is there anything you like about competitors' websites?</label>
+                 <textarea class="form-control" rows="3" placeholder="Enter your competitors"></textarea>
+														
+           </div>
+           
+           
+           <div class="form-group">
+                  <label>What differentiates you from your competitors?</label>
+                 <textarea class="form-control" rows="3" placeholder="Enter differentiates you from your competitors"></textarea>
+														
+           </div>
+           
+           
+       
+           
+             <div class="form-group">
+                  <label>In how many languages will your website be published?</label>
+                 <input type="text"  class="form-control" rows="3" placeholder="Enter languages will your website be published"/>
+														
+           </div>
+           
+               <div class="form-group">
+                  <label>Is your text/visual content ready to publish your website?</label>
+                 <input type="text"  class="form-control" rows="3" placeholder="Enter text/visual content "/>
+														
+           </div>
+           
+               <div class="form-group">
+                  <label>What are your website's main menu headings?</label>
+                  <input type="text"  class="form-control" rows="3" placeholder="(Veuillez remplir s'il est différent de votre site actuel)"/>
+                 <textarea class="form-control" rows="3" placeholder="# Home - Corporate - Products - References - Contacts-etc"></textarea>
+														
+           </div>
+            
+               <div class="form-group">
+                  <label> What kind of image would you like to achieve?</label>
+                 <input type="text"  class="form-control" rows="3" placeholder="Enter type of image would you like to achieve"/>
+														
+           </div>
+           
+            <div class="form-group"> 
+                  <label>  Why should users visit your website?</label>
+                 <textarea class="form-control" rows="3" placeholder="Enter users visit your website"></textarea>
+														
+           </div>
+        
+        			<div id="myDiv" class="modal-footer justify-content-between">
+							<button type="reset" class="btn btn-warning">Clear</button>
+
+							<button type="submit" class="btn btn-primary">
+								<i class="fa fa-plus-circle" aria-hidden="true"></i> Save
+							</button>
+						</div>
+        
+         
+         </div>
+         
+         </form>
+         </div>
+         
+         </div>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	  $('.summernote').summernote();
+	});
+</script>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>input form</title>
+
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+
+
+	
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>Use the model</h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#"  th:href="@{/admin/dashboard}">Home</a></li>
+								<li class="breadcrumb-item active" th:href="@{/admin/formLists/profileForm}">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+
+
+
+			<div class="card">
+				<div class="card-header" style="text-align: center;">
+					<h5>Choose a model</h5>
+					<p>Choose a template from our form library available for free
+						online.</p>
+
+				</div>
+
+			</div>
+			<section class="content">
+				<div class="container-fluid">
+					<!-- Small boxes (Stat box) -->
+					<div class="row">
+
+						<div class="col-lg-3 col-6">
+						
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+									<h5>
+										<a href="#"  th:href="@{/admin/formLists/addprogram}" class="small-box-footer">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="color:#6B46C1">Form of program</p>
+								</div>
+								<a th:href="@{/admin/formLists/addprogram}">
+								<div class="icon ">
+
+									<i   style="color:#6B46C1" class="fa fa-file-text" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/addprogram}" class="small-box-footer">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+											<h5>
+										<a href="#" 	data-toggle="modal" data-target="#category"class="small-box-footer">
+									
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="color:#6B46C1">Category form</p>
+								</div>
+									<a href="#"	 data-toggle="modal" data-target="#category" >
+								<div class="icon">
+
+								<i style="color:#6B46C1" class="fa fa-newspaper-o" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#" class="small-box-footer btn-outline-success ebtn" 	data-toggle="modal" data-target="#category">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+												<h5>	<a href="#"  th:href="@{/admin/formLists/addStudent}" class="small-box-footer">
+									
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="width:150px; color:#6B46C1">Student reg. form</p>
+								</div>
+									<a th:href="@{/admin/formLists/addStudent}">
+								<div class="icon">
+
+								<i style="color:#6B46C1" class="fa fa-graduation-cap" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"   th:href="@{/admin/formLists/addStudent}" class="small-box-footer btn-outline-success ebtn">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+											<h5>
+										<a href="#"  th:href="@{/admin/formLists/jobForm}" class="small-box-footer">
+									
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="color:#6B46C1">Job  form</p>
+								</div>
+									<a th:href="@{/admin/formLists/jobForm}">
+								<div class="icon">
+
+							<i style="color:#6B46C1" class="fa fa-briefcase" aria-hidden="true"></i>
+
+								</div></a>
+								<a th:href="@{/admin/formLists/jobForm} " class="small-box-footer btn-outline-success ebtn">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+					</div>
+					<!-- /.row -->
+
+					<!-- /.row (main row) -->
+				</div>
+				
+						<th:block th:replace="/admin/formLists/category :: modal('category')">modal</th:block>
+
+				</section>
+				
+			<section class="content">
+				<div class="container-fluid">
+					<!-- Small boxes (Stat box) -->
+					<div class="row">
+
+						<div class="col-lg-3 col-6">
+						
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+												<h5>
+										<a href="#"  th:href="@{/admin/formLists/addContact}" class="small-box-footer">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="color:#6B46C1">Contact form</p>
+								</div>
+									<a th:href="@{/admin/formLists/addContact}">
+								<div class="icon ">
+
+								<i style="color:#6B46C1" class="fa fa-volume-control-phone" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/addContact}" class="small-box-footer">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+												<h5>
+										<a href="#"  th:href="@{/admin/formLists/profileForm}" class="small-box-footer">
+									
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="color:#6B46C1">Profile  form</p>
+								</div>
+									<a th:href="@{/admin/formLists/profileForm}">
+								<div class="icon">
+
+								<i style="color:#6B46C1" class="fa fa-address-card-o" aria-hidden="true"></i>
+								</div></a>
+								<a  th:href="@{/admin/formLists/profileForm}" class="small-box-footer btn-outline-success ebtn">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+												<h5>	<a href="#"  th:href="@{/admin/formLists/businessForm}" class="small-box-footer">
+									
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="width:150px; color:#6B46C1">Business form</p>
+								</div>
+									<a th:href="@{/admin/formLists/businessForm}">
+								<div class="icon">
+
+								<i style="color:#6B46C1" class="fa fa-cart-plus" aria-hidden="true"></i>
+								</div></a>
+								<a href="#" th:href="@{/admin/formLists/businessForm}" class="small-box-footer btn-outline-success ebtn">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+											<h5>
+										<a href="#"  th:href="@{/admin/formLists/eventInvitation}" class="small-box-footer">
+									
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="color:#6B46C1">Event invitation</p>
+								</div>
+									<a th:href="@{/admin/formLists/eventInvitation}">
+								<div class="icon">
+								
+								<i  style="color:#6B46C1" class="fa fa-envelope-open-o" aria-hidden="true"></i>
+
+							    
+ 
+								</div></a>
+							
+								
+								<a  th:href="@{/admin/formLists/eventInvitation}" class="small-box-footer btn-outline-success ebtn">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+					</div>
+					<!-- /.row -->
+
+					<!-- /.row (main row) -->
+				</div>
+				
+						<th:block th:replace="/admin/formLists/category :: modal('category')">modal</th:block>
+
+
+				
+				</section>
+				
+				<section class="content">
+				<div class="container-fluid">
+					<!-- Small boxes (Stat box) -->
+					<div class="row">
+
+						<div class="col-lg-3 col-6">
+						
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+												<h5>
+										<a href="#"  th:href="@{/admin/formLists/holidayForm}" class="small-box-footer">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="color:#6B46C1">Holiday req. form</p>
+								</div>
+									<a th:href="@{/admin/formLists/holidayForm}">
+								<div class="icon ">
+
+									<i style="color:#6B46C1" class="fa fa-id-card-o" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/holidayForm}" class="small-box-footer">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+						
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+												<h5>
+										<a href="#"  th:href="@{/admin/formLists/addOrganisation}" class="small-box-footer">
+									
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="color:#6B46C1">Organization</p>
+								</div>
+									<a th:href="@{/admin/formLists/addOrganisation}">
+								<div class="icon">
+
+							<i style="color:#6B46C1" class="fa fa-sitemap" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/organisation}" class="small-box-footer btn-outline-success ebtn">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+									<h5>	<a href="#"  th:href="@{/admin/formLists/customerForm}" class="small-box-footer">
+									
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="width:150px; color:#6B46C1">New customer form</p>
+								</div>
+									<a th:href="@{/admin/formLists/customerForm}">
+								<div class="icon">
+
+								<i style="color:#6B46C1" class="fa fa-user-plus" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#" th:href="@{/admin/formLists/customerForm}" class="small-box-footer btn-outline-success ebtn">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+											<h5>
+										<a href="#"  th:href="@{/admin/formLists/feedbackForm}" class="small-box-footer">
+									
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="color:#6B46C1">Feedback form</p>
+								</div>
+									<a th:href="@{/admin/formLists/feedbackForm}">
+								<div class="icon" >
+
+						     	<i style="color:#6B46C1" class="fa fa-commenting-o" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/feedbackForm}" class="small-box-footer btn-outline-success ebtn">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+					</div>
+					<!-- /.row -->
+
+					<!-- /.row (main row) -->
+				</div>
+				
+						<th:block th:replace="/admin/formLists/category :: modal('category')">modal</th:block>
+
+
+				
+				</section>
+				
+				<section class="content">
+				<div class="container-fluid">
+					<!-- Small boxes (Stat box) -->
+					<div class="row">
+
+						<div class="col-lg-3 col-6">
+						
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+												<h5>
+										<a href="#"  th:href="@{/admin/formLists/customerSatisf}" class="small-box-footer">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p  style="color:#6B46C1">Customer satisfactionQ.</p>
+								</div>
+									<a th:href="@{/admin/formLists/customerSatisf}">
+								<div class="icon ">
+
+										<i  style="color:#6B46C1"  class="fa fa-hand-peace-o" aria-hidden="true"></i>
+							
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/customerSatisf}" class="small-box-footer">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+												<h5>
+										<a href="#"  th:href="@{/admin/formLists/projectForm}" class="small-box-footer">
+									
+										<i  class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="color:#6B46C1" >Project Sheet</p>
+								</div>
+									<a th:href="@{/admin/formLists/projectForm}">
+								<div class="icon">
+
+							<i style="color:#6B46C1"  class="fa fa-suitcase" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#" th:href="@{/admin/formLists/projectForm}" class="small-box-footer btn-outline-success ebtn" >
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+									<h5>	<a href="#"  th:href="@{/admin/formLists/webinarRegForm}" class="small-box-footer">
+									
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="width:150px; color:#6B46C1" >Webinar Reg. Form</p>
+								</div>
+									<a   th:href="@{/admin/formLists/webinarRegForm}">
+								<div class="icon">
+
+									<i  style="color:#6B46C1" class="fa fa-video-camera" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#"  th:href="@{/admin/formLists/webinarRegForm}" class="small-box-footer btn-outline-success ebtn">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-white">
+								<div class="inner">
+												<h5>
+										<a href="#"  th:href="@{/admin/formLists/appointmentForm}" class="small-box-footer">
+									
+										<i class="fa fa-plus-circle" aria-hidden="true"></i>
+										</a>
+									</h5>
+
+									<p style="color:#6B46C1">Appointment form</p>
+								</div>
+									<a th:href="@{/admin/formLists/appointmentForm}">
+								<div class="icon">
+
+								<i style="color:#6B46C1" class="fa fa-calendar" aria-hidden="true"></i>
+
+								</div></a>
+								<a href="#" th:href="@{/admin/formLists/appointmentForm}" class="small-box-footer btn-outline-success ebtn">
+									use the template <i class="fas fa-arrow-circle-right"></i>
+								</a>
+							</div>
+						</div>
+						<!-- ./col -->
+					</div>
+					<!-- /.row -->
+
+					<!-- /.row (main row) -->
+				</div>
+				
+						<th:block th:replace="/admin/formLists/category :: modal('category')">modal</th:block>
+
+
+				
+				</section>
+				
+			
+			<div class="card">
+				<div class="card-header" style="text-align: center;">
+				<h3>
+					<a href="#" th:href="@{/admin/formLists/inProgress}" class="btn btn-outline-success ebtn">
+									More models <i class="fas fa-arrow-circle-right"></i>
+								</a>
+				</h3>:
+				</div>
+
+			</div>
+				
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+
+    /*     function triggerModal(category) {
+			    if(category==null){
+			    	
+			        var url = "/admin/formLists/addcategory"+category;
+			    }else{
+			        var url = "/admin/formLists/templates-list"+category;
+			    }
+			    $('#category .ebtn').load(url);
+			    $('.modalEvent').modal({show:true});
+			}
+    
+
+      */
+     
+        $('#category').on('show.bs.modal', function () {
+            var category = prompt("Please enter your name", "John Doe");
+            $.get("/admin/formLists/addCategory?category=" + category, function (data) {
+                $('#category').find('.modal-body').html(data);
+            })
+        })
+	
+</script>
+
+
+
+</body>
+</html>

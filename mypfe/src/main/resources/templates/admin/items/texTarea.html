@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>input form</title>
+
+
+</head>
+<body>
+
+
+	<div layout:fragment="content">
+		<div class="container">
+
+
+
+			<div th:fragment="modal(textid)" class="modal fade" th:id="textid"
+				tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+
+				<div class="accordion" id="accordionExample" style="color: black;">
+					<div class="modal-dialog modal-md">
+						<div class="modal-content">
+							<div class="card-header  bg-primary">
+								<div class="input-group mb-3  justify-content-between">
+									<label id="label1"><i class="fa fa-font" aria-hidden="true"></i> Text Area</label> <a href="#"
+										role="button" class="close" data-dismiss="modal"
+										aria-label="Close"> <span aria-hidden="true">&times;</span>
+									</a>
+								</div>
+							</div>
+
+							<div class="modal-body">
+
+
+								<form action="#" th:action="@{/admin/items/saveTextarea}"
+									class="form-horizontal" th:object="${textarea}" method="POST">
+
+
+
+									<div class="form-group">
+										<div class="card card-body">
+											<div class="card-body">
+												<div>
+													<div id="collapseOne" class="collapse show"
+														aria-labelledby="headingOne"
+														data-parent="#accordionExample">
+														<div class="form-group row">
+															<label class="col-sm-3 col-form-label">Label</label>
+															<div class="col-sm-8">
+																<input id="label" type="text"   th:value="${label}"
+																	class="form-control" name="label"
+																	onKeyPress="edValueKeyPress()"
+																	placeholder="type the label text name" />
+
+															</div>
+														</div>
+														<div class="form-group row">
+															<label class="col-sm-3 col-form-label">Placeholder</label>
+															<div class="col-sm-8">
+																<input type="text"   th:value="${placeholder}"
+																	class="form-control" th:name="placeholder"
+																	placeholder="Text area name">
+															</div>
+														</div>
+
+														<div class="form-group row">
+															<label class="col-sm-3 col-form-label">Name</label>
+															<div class="col-sm-8">
+																<input type="text" th:value="${name}"
+																	class="form-control" name="name"
+																	placeholder="Cant be empty">
+															</div>
+														</div>
+
+														<div class="form-group row">
+															<label class="col-sm-3 col-form-label">Value</label>
+															<div class="col-sm-8">
+																<input type="text"  th:value="${value}"
+																	class="form-control" name="value" placeholder="value">
+															</div>
+														</div>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label" for="cols">Cols</label>
+														<div class="col-sm-8">
+															<input class="form-control" name="cols"
+																 th:value="${cols}" type="number" />
+														</div>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label" for="type">Rows</label>
+														<div class="col-sm-8">
+															<input class="form-control" name="row[]"
+																 th:value="${row}" type="number" />
+														</div>
+													</div>
+
+
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label" for="maxlength">Max-length</label>
+														<div class="col-sm-8">
+															<input class="form-control" name="maxlength[]"
+																  th:value="${maxlength}" type="number" />
+														</div>
+													</div>
+												</div>
+
+
+												<div class="modal-footer justify-content-between">
+													<button type="button" class="btn btn-default bg-dark"
+														data-dismiss="modal">Close</button>
+
+													<button href="#" type="submit" class="btn btn-primary">
+														<i class="fa fa-plus-circle" aria-hidden="true"></i>
+														Create
+													</button>
+												</div>
+											</div>
+
+										</div>
+
+
+									</div>
+
+
+
+
+								</form>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</body>
+</html>

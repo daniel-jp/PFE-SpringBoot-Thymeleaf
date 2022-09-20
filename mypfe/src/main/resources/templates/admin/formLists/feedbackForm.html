@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>Holiday Request Form</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>feedback form</h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+
+			<div class="card card-primary">
+				<div class="card-header">
+					<h2 class="card-title">Feedback form</h2>
+				</div>
+				<!-- /.card-header -->
+				<div class="card-body">
+
+					<form action="#">
+						<div class="row">
+							<div class="col-sm-6">
+								<!-- text input -->
+								<div class="form-group">
+									<label>First name.</label> <input type="text"
+										class="form-control" placeholder="Enter first name">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Last name</label> <input type="text"
+										class="form-control" placeholder="Enter last name">
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label>Email</label> <input type="email" class="form-control"
+								placeholder="Enter email">
+						</div>
+
+
+
+
+						<div class="row">
+
+							<label>Comment type</label>
+							<!-- /.col-lg-6 -->
+
+							<div class="input-group  mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><input type="radio"
+										name="radio1"></span>
+								</div>
+								<input type="text" class="form-control" value="Suggestion">
+
+								<!-- /input-group -->
+							</div>
+							<div class="input-group  mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><input type="radio"
+										name="radio1"></span>
+								</div>
+								<input type="text" class="form-control" value="Complaint">
+
+								<!-- /input-group -->
+							</div>
+							<div class="input-group mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><input type="radio"
+										name="radio1"></span>
+								</div>
+								<input type="text" class="form-control" value="Question">
+
+								<!-- /input-group -->
+							</div>
+							<!-- /.col-lg-6 -->
+							<div class="input-group  mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><input type="radio"
+										name="radio1"></span>
+								</div>
+								<input type="text" class="form-control" value="Human resources">
+
+								<!-- /input-group -->
+							</div>
+							<div class="input-group  mb-1">
+							<div class="input-group-prepend">
+									<span class="input-group-text"><input type="radio"
+										name="radio1"></span>
+								</div>
+								<input type="text" class="form-control" value="Other">
+
+								<!-- /input-group -->
+							</div>
+
+						</div>
+						
+
+
+						<div>
+							<label>Describe your comments</label>
+							<div class="input-group  mb-3">
+
+								<textarea rows="3" class="form-control" placeholder="Enter first name"></textarea>
+								<!-- /input-group -->
+							</div>
+
+						</div>
+
+						<div id="myDiv" class="modal-footer justify-content-between">
+							<button type="reset" class="btn btn-warning">Clear</button>
+
+							<button type="submit" class="btn btn-primary">
+								<i class="fa fa-plus-circle" aria-hidden="true"></i> Save
+							</button>
+						</div>
+
+					</form>
+				</div>
+			</div>
+			<!-- /.card-body -->
+
+
+
+		</div>
+	</div>
+</body>
+</html>

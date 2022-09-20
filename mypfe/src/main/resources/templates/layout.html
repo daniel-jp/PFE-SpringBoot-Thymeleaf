@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" 
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  >
+<head>
+<meta charset="UTF-8">
+
+ <title layout:title-pattern="$CONTENT_TITLE - $DECORATOR_TITLE">ITAdventure</title>
+
+<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.bundle.min.js}"></script>
+<link th:rel="stylesheet" type="text/css" 
+th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
+
+    <!-- Custom styles for this template -->
+
+
+<!-- Custom styles for this template -->
+
+<title>Insert title here</title>
+ <style th:replace="shared/style"></style>
+</head>
+<body>
+<body>
+
+	<div th:replace="shared/header"></div>
+
+	<!--<div th:replace="shared/menu"></div> -->
+
+	 <div layout:fragment="content"></div>
+
+	<div th:replace="shared/footer"></div>
+
+	<div layout:fragment="script"></div>
+
+	<div th:replace="shared/file_script"></div>
+
+</body>
+</html>

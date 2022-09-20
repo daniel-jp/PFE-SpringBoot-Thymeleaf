@@ -1,0 +1,11 @@
+form.project.mypfe
+form.project.mypfe.dao
+form.project.mypfe.entity
+form.project.mypfe.enums
+form.project.mypfe.service
+form.project.mypfe.web
+org.sid.springmvc
+org.sid.springmvc.dao
+org.sid.springmvc.entities
+org.sid.springmvc.security
+org.sid.springmvc.web

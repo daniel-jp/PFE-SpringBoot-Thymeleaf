@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>header</title>
+
+
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+			
+				<div th:fragment="modal(headId)" class="modal fade"  
+					th:id="${headId}" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+					<div class="accordion" id="accordionExample" style="color: black;">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content">
+							
+								<div class="card-header  bg-primary">
+										<div class="input-group mb-3  justify-content-between">
+									   <span> <i class="fa fa-h-square" aria-hidden="true"> </i> Title </span>
+									   
+									<a href="#" role="button" class="close" data-dismiss="modal"
+									aria-label="Close"> <span aria-hidden="true">&times;</span>
+								    </a>
+								 
+							</div>
+							</div>
+
+								<div class="modal-body">
+									<form class="form-horizontal" action="#" th:action="@{/admin/items/saveHeader}" 
+										th:object="${head}" method="POST">
+
+										<div class="form-group" >
+											<div class="card card-body">
+											
+											<div class="row">
+												        <div class="col-sm-12">
+												          <div class="card card-outline card-info">
+												            <div class="card-header">
+												              <h2 class="card-title"><div>Title</div>
+												              </h2>
+												            </div>
+												            <div>
+												      
+												            <div class="card-body">
+												              <textarea rows="3" id="summernote" class="form-control headT"  name="title"  th:value="${title}" autocomplete="off"  
+												             	onKeyPress="edValueKeyPress()">
+												                Place <em>some</em> <u>tile</u> <strong>here</strong>
+												              </textarea>
+												            </div>
+												      </div>
+												          </div>
+												        </div>
+												    
+												</div>
+												
+												<div class="form-group row">
+													<label class="col-sm-3 col-form-label" for="title">Description</label>
+													<div class="col-sm-12" style="margin-bottom: 12px">
+													     
+													     <textarea rows="2"  class="form-control"   name="description"  th:value="${description}"  placeholder=" Description " autocomplete="on">   </textarea>
+														
+											</div>
+											</div>						
+											
+											<div id="myDiv" class="modal-footer justify-content-between">
+												
+													<button type="button" class="btn btn-default bg-dark"
+														data-dismiss="modal">Close</button>
+													<button type="submit" class="btn btn-primary" name="addRow">
+
+														<i class="fa fa-plus-circle" aria-hidden="true"></i>
+														Create
+													</button>
+
+												</div>
+											</div>
+										</div>
+
+
+									</form>
+								
+									
+									<script>
+												  $(function () {
+												    // Summernote
+												    $('#summernote').summernote()
+												 })
+									</script>
+									
+
+									<script type="text/javascript">
+										/* var dropzone = document.getElementById('#dropzone');
+										var add_more_fields = document.getElementById('#add_more_fields');
+										var remove_fields = document.getElementById('#remove_fields');
+
+										add_more_fields.onclick = function() {
+											var newField = document.createElement('input');
+											newField.setAttribute('type','text');
+											newField.setAttribute('name','label');
+											newField.setAttribute('class','form-control');
+											newField.setAttribute('placeholder','Another Field1');
+											dropzone.appendChild(newField);
+
+										}
+										remove_fields.onclick = function() {
+											var input_tags = dropzone.getElementsByTagName('input');
+
+											if (input_tags.length > 0) {
+
+												dropzone.removeChild(input_tags[(input_tags.length) - 1]);
+											}
+										}
+ 												*/
+									
+ 												function edValueKeyPress() {
+ 												    var edValue = document.getElementsByName("title");
+ 												    var s = edValue.value;
+ 				
+ 												    var lblValue = document.getElementsByName("lblValue");
+ 												    lblValue.innerText =""+s;
+ 				
+ 												    //var s = $("#edValue").val();
+ 												    //$("#lblValue").text(s);    
+ 										}
+										    
+									</script>
+									
+
+								</div>
+							</div>
+						</div>
+
+				
+			</div>
+					
+		 </div>
+		</div>
+	</div>
+
+</body>
+</html>

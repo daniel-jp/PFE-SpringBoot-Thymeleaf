@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>Category</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+		
+		
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h3>Category </h3>
+						</div>
+						
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#"
+									th:href="@{/admin/dashboard}">Home</a></li>
+								<li class="breadcrumb-item active"
+									th:href="@{/admin/formLists/profileForm}">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+
+
+
+			<div class="card">
+			
+			<div class="card-header bg-primary">
+					<h3  class="card-title"><i style="color: black" class="fa fa-list-alt" aria-hidden="true"></i> Category list</h3>
+				</div>
+				
+				
+				
+				
+				<div class="card-body">
+
+					<div id="myDiv" class="modal-footer justify-content-between">
+
+						<a href="#" th:href="@{/admin/formLists/addCategory}"
+							class="btn btn-success"> <i class="fa fa-plus-circle"
+							aria-hidden="true"> Add new</i>
+						</a>
+
+
+
+						<div class="col-12 col-lg-6">
+
+
+
+							<nav class="navbar navbar-expand navbar-white navbar-light">
+								<!-- Left navbar links -->
+
+
+								<!-- Right navbar links -->
+								<ul class="navbar-nav ml-auto">
+									<!-- Navbar Search -->
+									<li class="nav-item"><a class="nav-link"
+										data-widget="navbar-search" data-target="#navbar-search5"
+										href="#" role="button"> <i class="fas fa-search"></i>
+									</a>
+										<div class="navbar-search-block navbar-search-open"
+											id="navbar-search5" style="display: flex;">
+
+											<form action="#" method="get"
+												th:action="@{/admin/formLists/templateDisplayList/showCateg}">
+
+
+												<div class="input-group">
+													<input class="form-control" type="search" name="keywordc"
+														th:value="${keywordc}"
+														placeholder="Search by category name" aria-label="Search">
+													<div class="input-group-append">
+														<button class="btn btn-navbar" type="submit">
+															<i class="fas fa-search" style="color: navy;"></i>
+														</button>
+														<button class="btn btn-navbar" type="button"
+															data-widget="navbar-search">
+															<i class="fas fa-times"></i>
+														</button>
+													</div>
+												</div>
+											</form>
+										</div></li>
+
+								</ul>
+							</nav>
+						</div>
+						</div>
+
+
+
+						<div class="card-body">
+							<div class="col-sm-12">
+								<table class="table table-sm table-hover">
+
+									<thead class="table table-dark">
+										<tr>
+											<th>ID</th>
+											<th>Category name</th>
+											<th>Action</th>
+										</tr>
+
+
+
+									</thead>
+									<tr th:each="catg : ${categorPage}">
+										<td th:text="${catg.id}"></td>
+										<td th:text="${catg.name}"></td>
+
+
+										<td>
+											<div class="btn-group" role="group"
+												aria-label="Basic mixed styles example">
+												<a class="btn btn-warning ebtn"
+													th:href="@{ /admin/formLists/updateCategory/ (id=${catg.id})}"
+													data-toggle="modal" data-target="#category"> <i
+													class="fa fa-pencil-square-o" aria-hidden="true"></i>
+												</a> <a
+													th:href="@{/admin/formLists/templateDisplayList/deleteCategory(id=${catg.id}, keywordc=${keywordc},page=${currentPage},size=${size})}"
+													onclick="return confirm('Are sure you want to delete?')"
+													class="btn btn-danger ml-1"> <i class="fa fa-trash"
+													aria-hidden="true"></i></a>
+
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="card-footer clearfix">
+
+							<ul class="pagination">
+
+								<li class="page-item" th:if="${currentPage}"><a
+									class="page-link" href="#"
+									th:href="@{/admin/formLists/templateDisplayList/showCateg?page={prev}(prev=${prev})}"
+									aria-controls="example1" data-dt-idx="0" tabindex="0">
+										Previous </a></li>
+
+								<li th:each="page,status:${pages}"
+									class="paginate_button page-item "><a
+									th:class="${status.index==currentPage?'btn btn-primary':'btn'}"
+									th:href="@{/admin/formLists/templateDisplayList/showCateg(page=${status.index},keywordc=${keywordc}, size=${size})}"
+									th:text="${status.index}"></a></li>
+								<li class="page-item" th:if="${pages}"><a class="page-link"
+									href="#"
+									th:href="@{/admin/formLists/templateDisplayList/showCateg?page={next}(next=${next})}">
+										Next</a></li>
+							</ul>
+						</div>
+
+
+					</div>
+
+
+					<th:block th:replace="~{/admin/formLists/category :: modal('category')}" >modal</th:block>
+
+				
+			</div>
+
+	<script type="text/javascript">
+
+     
+    /*     $('#category').on('show.bs.modal', function () {
+            var category = prompt("Please enter your name", "John Doe");
+            $.get("/admin/formLists/addCategory?category=" + category, function (data) {
+                $('#category').find('.modal-body').html(data);
+            })
+        }) */
+        
+    
+     $(document).ready(function(){
+	
+	$('.table .ebtn').on('click', function(event){
+		
+		event.preventDefault();
+		var href  = $(this).attr('href');
+		
+		$.get(href, function(catg, status){
+			
+			$('.modalEvent #id').val(catg.id);
+			$('.modalEvent #name').val(catg.name);
+		});
+		
+		$('.modalEvent #category').modal();
+	});
+	
+	
+	
+});
+	
+      </script>
+		</div>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>student registration form</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+
+
+
+
+
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>Display of student</h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+
+			<div class="card">
+			
+				<div class="card-header bg-primary">
+					<h3 class="card-title"><i style="color: black" class="fa fa-list-alt" aria-hidden="true"></i>  Student display</h3>
+					
+					
+				</div>
+
+
+				<!-- /.card-header -->
+				<div class="card-body">
+				
+				  <div id="myDiv" class="modal-footer justify-content-between">
+			  
+			  	<a href="#"  th:href="@{/admin/formLists/addStudent}" class="btn btn-success">
+										     <i class="fa fa-plus-circle" aria-hidden="true"> Add new</i>
+										</a>
+							
+				          
+						<div class="col-12 col-lg-8">
+							
+							<nav class="navbar navbar-expand navbar-white navbar-light">
+								<!-- Left navbar links -->
+								<!-- Right navbar links -->
+								<ul class="navbar-nav ml-auto">
+									<!-- Navbar Search -->
+									<li class="nav-item"><a class="nav-link"
+										data-widget="navbar-search" data-target="#navbar-search5"
+										href="#" role="button"> <i class="fas fa-search"></i>
+									</a>
+										<div class="navbar-search-block navbar-search-open"
+											id="navbar-search5" style="display: flex;">
+											<form class="form-inline"  action="#" 
+											       th:action="@{/admin/formLists/templateDisplayList/showStudent}"  method="get">
+												<div class="input-group">
+													<input class="form-control"
+														type="search" name="keywords" th:value="${keywords}"
+														placeholder="Search by stutudent name" aria-label="Search">
+													<div class="input-group-append">
+														<button class="btn btn-navbar" type="submit">
+															<i class="fas fa-search" style="color: navy;"></i>
+														</button>
+														<button class="btn btn-navbar" type="button"
+															data-widget="navbar-search">
+															<i class="fas fa-times"></i>
+														</button>
+													</div>
+												</div>
+											</form>
+										</div></li>
+
+								</ul>
+							</nav>
+						</div>
+						</div>
+
+					
+	          <div class="card-body">
+								<div class="col-sm-12">
+				<div class="table-responsive">
+					<table class="table table-sm table-hover"
+						aria-describedby="example1_info">
+						<thead class="table table-dark">
+							<tr>
+								<th>ID</th>
+								<th>F.name</th>
+								<th>L.name</th>
+								<th>B.date</th>
+								<th>Genre</th>
+								<th>City | Province</th>	
+								<th>Address</th>
+								<th>P.code</th>
+								<th>Email</th>
+								<th>Phone</th>
+								<th>Institution</th>
+								<th>Course</th>
+								<th>Dates</th>
+								<th>Comments</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+
+
+						<tr th:each="stud : ${studPage}">
+
+							<td th:text="${stud.id}"></td>
+							<td th:text="${stud.firstName}"></td>
+							<td th:text="${stud.lastName}"></td>
+							<td th:text="${stud.birthDate}"></td>
+							<td th:text="${stud.gender}"></td>
+					    	<td> <pan th:text="${stud.city}"></pan> <i class="fa fa-flag-checkered" aria-hidden="true"></i> <pan th:text="${stud.stateProvince}"></pan>  </td>
+					         <td><i class="fa fa-map-marker" style="color:red" aria-hidden="true"> 1 <pan th:text="${stud.address1}"></pan></i>  <i style="color:  #0d82d8" class="fa fa-map-marker" aria-hidden="true"> 2 <pan th:text="${stud.address2}"></pan></i>  </td>
+					    	
+							<td th:text="${stud.postalZipCode}"></td>
+							<td scope="row" th:text="${stud.email}"></td>
+							<td th:text="${stud.phoneNumber}"></td>
+							<td th:text="${stud.institution}"></td>
+							<td th:text="${stud.courses}"></td>			
+							<td>Stard: <i style="color: #ec8816" class="fa fa-calendar-o" aria-hidden="true"> <pan th:text="${stud.stDate}"></pan></i> End:<i style="color:  #11ad39" class="fa fa-calendar" aria-hidden="true"> <pan  th:text="${stud.endDate}"></pan> </i></td>
+						<td th:text="${stud.comments}"></td>
+									
+							<td>
+								<div class="btn-group" role="group"
+									aria-label="Basic mixed styles example">
+									<a class="btn btn-warning"
+										th:href="@{ /admin/formLists/updateStudentForm/ (id=${stud.id})}">
+										<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+									</a> <a
+										th:href="@{/admin/formLists/templateDisplayList/deleteStudent(id=${stud.id}, keywords=${keywords},page=${currentPage},size=${size})}"
+										onclick="return confirm('Are sure you want to delete?')"
+										class="btn btn-danger ml-1"> <i class="fa fa-trash"
+										aria-hidden="true"></i></a>
+
+								</div>
+							</td>
+						</tr>
+
+				</table>
+</div>
+</div>
+</div>
+					<div class="col-sm-12 col-md-7">
+						<div class="dataTables_paginate paging_simple_numbers"
+							id="example1_paginate">
+							<ul class="pagination">
+								<li class="paginate_button page-item"
+									id="example1_previous"><a href="#"
+									th:href="@{/admin/formLists/templateDisplayList/showStudent?page={prev}(prev=${prev})}"
+									aria-controls="example1" data-dt-idx="0" tabindex="0"
+									class="page-link">Previous</a></li>
+
+								<li th:each="page,status:${pages}" class="paginate_button page-item"><a
+									th:class="${status.index==currentPage?'btn btn-primary':'btn'}"
+									th:href="@{/admin/formLists/templateDisplayList/showStudent(page=${status.index},keywords=${keywords}, size=${size})}"
+									th:text="${status.index}"></a></li>
+
+
+								<li class="paginate_button page-item next" id="example1_next"><a
+									href="#"
+									th:href="@{/admin/formLists/templateDisplayList/showStudent?page={next}(next=${next})}"
+									aria-controls="example1" data-dt-idx="7" tabindex="0"
+									class="page-link">Next</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- /.card-body -->
+			</div>
+
+		</div>
+
+
+	</div>
+</body>
+</html>

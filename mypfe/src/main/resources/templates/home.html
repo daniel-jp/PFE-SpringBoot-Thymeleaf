@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+</head>
+<body>
+
+<div layout:fragment="content">
+	<div class="container">
+	 <h1>Testing</h1>
+	</div>
+	<div class="container">
+
+
+<th:block layout:fragment="script">
+    <script>
+        console.log("Home Page");
+    </script>
+</th:block>
+
+
+
+<div class="row row-cols-1 row-cols-md-4">
+
+  <div class="col mb-4">
+    <div class="card">
+      <img th:src="@{/img/g1.png}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">User-friendly Interface</h5>
+        <p class="card-text">Enjoy an excellent form creation experience with simplified features and a user-friendly interface. The online PDF builder gives you an interactive interface with the flexibility to drag and drop fillable form fields and edit field elements with ease.</p>
+      </div>
+    </div>
+  </div>
+  
+ <div class="col mb-4">
+    <div class="card">
+      <img th:src="@{/img/g1.png}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">User-friendly Interface</h5>
+        <p class="card-text">Enjoy an excellent form creation experience with simplified features and a user-friendly interface. The online PDF builder gives you an interactive interface with the flexibility to drag and drop fillable form fields and edit field elements with ease.</p>
+      </div>
+    </div>
+  </div>
+  
+  
+<div class="col mb-4">
+    <div class="card">
+      <img th:src="@{/img/g1.png}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">User-friendly Interface</h5>
+        <p class="card-text">Enjoy an excellent form creation experience with simplified features and a user-friendly interface. The online PDF builder gives you an interactive interface with the flexibility to drag and drop fillable form fields and edit field elements with ease.</p>
+      </div>
+    </div>
+  </div>
+  
+ <div class="col mb-4">
+    <div class="card">
+      <img th:src="@{/img/g1.png}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">User-friendly Interface</h5>
+        <p class="card-text">Enjoy an excellent form creation experience with simplified features and a user-friendly interface. The online PDF builder gives you an interactive interface with the flexibility to drag and drop fillable form fields and edit field elements with ease.</p>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+  
+
+  
+  </div>
+
+
+
+</div>
+</body>
+</html>

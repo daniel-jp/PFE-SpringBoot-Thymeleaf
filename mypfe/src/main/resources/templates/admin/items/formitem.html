@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8">
+<title>Save form items</title>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+
+
+
+
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>Popup and drop zone</h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">User Profile</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+
+			<section class="content">
+
+				<div class="container-fluid">
+					<div class="row">
+
+						<!-- /.col -->
+						<div class="col-md-9">
+							<div class="card">
+								<div class="card-header p-2">
+									<ul class="nav nav-pills">
+										<li class="nav-item"><a class="nav-link active"
+											href="#activity" data-toggle="tab">Form name</a></li>
+
+
+									</ul>
+								</div>
+								<!-- /.card-header -->
+								<div class="card-body">
+
+
+									<form role="form" class="form-horizontal" action="#"
+										th:action="@{/admin/items/saveForm}" th:object="${form}"
+										method="POST">
+										<!-- th:each="fieladItems : ${displayfieldform}" -->
+
+										<div class="card-group align-items-center">
+											<div class="col-md-12">
+												<div id="dropzone">
+
+													<ul style="list-style: none; color: black">
+														<li th:each="listF: ${form}">
+
+															<div class="input-group" th:if="${listF==null}">
+																<div class="input-group mb-3">
+
+																	<div class="col-sm-10 row"
+																		style="background: white; padding: 4px; margin-right: 4px;">
+
+																		<p th:value="${listF.title}" th:utext="${listF.title}"></p>
+
+																		<div>
+																			<span th:value="${listF.description}"
+																				th:text="${listF.description}"> </span>
+																		</div>
+
+																	</div>
+																	<div>
+																		<a href="#" role="button" data-dismiss="modal"
+																			class="btn btn-outline-danger" aria-label="Close">
+																			<span aria-hidden="true">&times;</span>
+																		</a> <a id="list-settings-list" data-bs-toggle="list"
+																			class="btn btn-outline-info" href="#headId"
+																			th:href="@{/admin/items/addHeader}" role="tab"
+																			data-toggle="modal" data-target="#headId"
+																			aria-controls="list-profile"> <i
+																			class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+																		<th:block
+																			th:replace="/admin/items/header :: modal('headId')"></th:block>
+
+
+																	</div>
+																</div>
+															</div>
+
+
+															<div class="input-group">
+
+																<div class="col-sm-11 row">
+
+																	<span id="label" th:value="${listF.label}"
+																		th:text="${listF.label}"> Input name</span>
+																	<div class="input-group mb-3">
+																		<input class="form-control" th:type="${listF.type}"
+																			th:name="${listF.name}" th:text="${listF.name}"
+																			th:placeholder="${listF.placeholder}"
+																			th:value="${listF.value}" />
+
+
+																		<div class="input-group-append">
+																			<a href="#"
+																				th:href="@{'/admin/items/deleteInput/'+${listF.id}}"
+																				class="btn btn-danger btn-md"><i
+																				class="fa fa-minus-circle" aria-hidden="true"></i></a> <a
+																				id="list-settings-list" data-bs-toggle="list"
+																				class="btn btn-outline-info" href="#inputid"
+																				th:href="@{/admin/items/addinput}" role="tab"
+																				data-toggle="modal" data-target="#inputid"
+																				aria-controls="list-settings"> <i
+																				class="fa fa-pencil-square-o" aria-hidden="true"></i>
+																			</a>
+
+																			<th:block
+																				th:replace="/admin/items/inputText :: modal('inputid')">
+																			</th:block>
+																		</div>
+																	</div>
+																</div>
+															</div> <!-- 		
+							<div class=""  th:each=" listF : ${textarea}" th:if="${listF!= null}">
+									<div class="input-group">
+										<div class="">
+											<span id="label1" th:text="${listF.label}">Text Area</span>
+											<div class="input-group mb-3 justify-content-between" style="margin-right:4px;">
+
+												<textarea th:rows="${listF.row}"
+													th:cols="${listF.cols}" class="form-control"
+													th:name="${listF.name}"
+													th:placeholder="${listF.placeholder}"
+													th:maxlength="${listF.maxlength}"
+													th:value="${listF.value}">
+								            </textarea>
+												<div>
+													<a href="#" role="button"
+														class="btn btn-outline-danger" data-dismiss="modal"
+														aria-label="Close"> <span aria-hidden="true">&times;</span>
+													</a> <a data-toggle="collapse" href="#collapseExample"
+														class="btn btn-outline-info" role="button"
+														aria-expanded="false" aria-controls="collapseExample">
+														<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								
+								
+								<div class="input-group"  th:each=" listF : ${datef}" th:if="${listF!= null}">
+
+									<div class="col-sm-11 row">
+										<span id="label1"  th:value="${listF.label}"  th:text="${listF.label}">Date Field</span>
+										<div class="input-group mb-3">
+											<input class="form-control" th:type="${listF.type}"
+												th:name="${listF.name}" th:value="${listF.value}" />
+
+											<div class="input-group-append" id="button-addon4">
+												<a href="#" role="button" class="btn btn-outline-danger"
+													data-dismiss="modal" aria-label="Close"> <span
+													aria-hidden="true">&times;</span>
+												</a> <a data-toggle="collapse" href="#collapseExample"
+													class="btn btn-outline-info" role="button"
+													aria-expanded="false" aria-controls="collapseExample">
+													<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+												</a>
+
+											</div>
+										</div>
+									</div>
+								</div>
+								
+										<div class="input-group"  th:each=" listF : ${radiof}" th:if="${listF!= null}">
+									<div class="col-sm-11 row">
+
+										<table class="table">
+
+											<tbody>
+												<span id="label1" th:value="${listF.label}" th:text="${listF.label}">Radio Group</span>
+
+												<tr>
+													<td class="input-group mb-3 justify-content-between"><input
+														style="margin-left: 1px;" class="form-check-input"
+														
+														type="radio" th:name="${listF.name}" th:checked="${listF.radio}"
+														th:value="${listF.value}" /> <label
+														style="margin-left: 18px;" class="form-check-label"
+														for="defaultCheck1" th:text="${listF.options}"> </label>
+														
+
+														<div class="input-group-append" id="button-addon4"
+															style="margin-left: 412px;">
+
+															<a href="#" role="button"
+																class="btn btn-outline-danger" data-dismiss="modal"
+																aria-label="Close"> <span aria-hidden="true">&times;</span>
+															</a> <a class="btn btn-outline-info"
+																data-toggle="collapse" href="#collapseExample"
+																role="button" aria-expanded="false"
+																aria-controls="collapseExample"> <i
+																class="fa fa-pencil-square-o" aria-hidden="true"></i>
+															</a>
+
+														</div></td>
+												</tr>
+
+
+											</tbody>
+
+
+										</table>
+									</div>
+								</div>
+								
+								
+								
+							<div class="input-group"  th:each=" listF : ${checkbf}" th:if="${listF!= null}">
+									<div class="col-sm-11 row">
+										<table class="table">
+											<tbody>
+												<span id="label1" th:text="${listF.value}" > Checkbox Group </span>
+												<tr>
+													<td class="input-group mb-3 justify-content-between">
+													<input type="checkbox" th:checked="${listF.heckbox}"
+														th:name="${listF.name}" th:value="${listF.value}"
+														aria-label="Checkbox for following text input" /> 
+														<label class="form-check-label"
+														th:text="${listF.options}" for="defaultCheck1">
+													</label>
+
+														<div class="input-group-append" id="button-addon4"
+															style="margin-left: 412px;">
+															<a href="#" role="button"
+																class="btn btn-outline-danger" data-dismiss="modal"
+																aria-label="Close"> <span aria-hidden="true">&times;</span>
+															</a> <a class="btn btn-outline-info"
+																data-toggle="collapse" href="#collapseExample"
+																role="button" aria-expanded="false"
+																aria-controls="collapseExample"> <i
+																class="fa fa-pencil-square-o" aria-hidden="true"></i>
+															</a>
+														</div></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								
+								
+								
+								
+								<div class="input-group"  th:each=" listF : ${numbf}" th:if="${listF!= null}">
+									<div class="col-sm-11 row">
+
+										<span id="label1"  th:value="${listF.value}"  th:text="${listF.value}" >Number</span>
+										<div class="input-group mb-3">
+											<input type="number" class="form-control"
+												th:name="${listF.name}" th:min="${listF.min}"
+												th:max="${listF.max}" th:value="${listF.value}" />
+
+											<div class="input-group-append" id="button-addon4">
+												<a href="#" role="button" class="btn btn-outline-danger"
+													data-dismiss="modal" aria-label="Close"> <span
+													aria-hidden="true">&times;</span>
+												</a> <a data-toggle="collapse" class="btn btn-outline-info"
+													href="#collapseExample" role="button"
+													aria-expanded="false" aria-controls="collapseExample">
+													<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								
+								
+								
+							<div class="input-group"  th:each=" listF : ${selectf}" th:if="${listF!= null}">
+									<div class="col-sm-11 row">
+
+										<span id="label1" th:value="${listF.label}"  th:text="${label}" > Select </span>
+										<div class="input-group mb-3">
+											<select th:value="${listF.value}" class="form-control"  th:name="${listF.name}" 
+												id="dropDownList">
+												
+												<option value="0">select option</option>
+												<option th:each="sel: ${selec}" value="1"
+													th:value="${sel.options}" th:text="${sel.options}"></option>
+
+											</select>
+											
+											<div class="input-group-append" id="button-addon4">
+												<a href="#" role="button" class="btn btn-outline-danger"
+													data-dismiss="modal" aria-label="Close"> <span
+													aria-hidden="true">&times;</span>
+												</a> <a data-toggle="collapse" class="btn btn-outline-info"
+													href="#collapseExample" role="button"
+													aria-expanded="false" aria-controls="collapseExample">
+													<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								
+								
+								
+								<div class="input-group"  th:each=" listF : ${filef}" th:if="${listF!= null}">
+									<div class="col-sm-11 row">
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text"
+													id="inputGroupFileAddon01" th:value="${listF.label}"
+													th:text="${listF.label}">File</span>
+											</div>
+											<input th:type="${listF.type}" th:name="${listF.name}"
+												class="form-control" th:value="${listF.value}"
+												accept="image/png, image/jpeg">
+
+											<div class="input-group-append" id="button-addon4">
+												<a href="#" role="button" class="btn btn-outline-danger"
+													data-dismiss="modal" aria-label="Close"> <span
+													aria-hidden="true">&times;</span>
+												</a> <a data-toggle="collapse" href="#collapseExample"
+													class="btn btn-outline-info" role="button"
+													aria-expanded="false"><i
+													class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
+											</div>
+										</div>
+									</div>
+								</div> -->
+
+														</li>
+
+
+
+
+													</ul>
+
+												</div>
+
+												<button type="submit"
+													class="btn btn-primary btn-lg btn-block">
+													<i class="fa fa-plus-circle" aria-hidden="true"></i> Save
+												</button>
+
+
+											</div>
+										</div>
+
+									</form>
+
+									<!-- /.tab-content -->
+								</div>
+								<!-- /.card-body -->
+
+							</div>
+							<!-- /.card -->
+						</div>
+
+
+						<div class="col-md-3">
+
+							<!-- Profile Image -->
+							<div class="card card-primary card-outline">
+								<div class="card-body box-profile">
+									<div class="card-header p-0 border-bottom-0">
+										<ul class="nav nav-tabs" id="custom-tabs-four-tab"
+											role="tablist">
+											<li class="nav-item"><a class="nav-link active"
+												id="custom-tabs-four-home-tab" data-toggle="pill"
+												aria-controls="custom-tabs-four-home" aria-selected="true">Fields
+													form </a></li>
+
+										</ul>
+									</div>
+
+
+									<ul class="list-group list-group-unbordered mb-3"
+										style="padding-top: 14px;">
+
+										<li style="list-style: none;" class="list-item"><a
+											type="button" class="btn  btn-block bg-secondary"
+											id="list-settings-list" data-bs-toggle="list"
+											style="font-size: 20px; background-color: #EDF2F7;"
+											href="#headId" role="tab" data-toggle="modal"
+											data-target="#headId" aria-controls="list-profile"> <i
+												class="fa fa-h-square" aria-hidden="true"></i> Header
+										</a></li>
+
+
+										<li style="list-style: none; padding-top: 2px;"
+											class="list-item"><a class="btn  btn-block bg-secondary"
+											id="list-settings-list" data-bs-toggle="list"
+											style="font-size: 20px; background-color: #EDF2F7;"
+											href="#inputid" th:href="@{/admin/items/addInput}" role="tab"
+											data-toggle="modal" data-target="#inputid"
+											aria-controls="list-settings"> <i
+												class="fa fa-text-width" aria-hidden="true"></i> Input Text
+										</a> <th:block
+												th:replace="@{/admin/items/inputText} :: modal('inputid')">
+											</th:block></li>
+
+
+
+										<li style="list-style: none; padding-top: 2px;"
+											class="list-item"><a
+											class="btn btn-primary btn-block bg-secondary"
+											id="list-settings-list" data-bs-toggle="list"
+											style="font-size: 20px; background-color: #EDF2F7;"
+											href="#list-settings" role="tab" data-toggle="modal"
+											data-target="#textid" aria-controls="list-settings"
+											th:href="@{/admin/items/addTextarea}"> <i
+												class="fa fa-font" aria-hidden="true"></i> Text Area
+										</a> <th:block
+												th:replace="@{/admin/items/texTarea} :: modal('textid')">modal</th:block>
+										</li>
+
+										<li style="list-style: none; padding-top: 2px;"
+											class="list-item"><a
+											class="btn btn-primary btn-block bg-secondary"
+											id="list-settings-list" data-bs-toggle="list"
+											style="font-size: 20px; background-color: #EDF2F7;"
+											href="#dateid" role="tab" data-toggle="modal"
+											data-target="#dateid" aria-controls="list-settings"
+											th:href="@{/admin/items/addDatefield}"> <i
+												class="fa fa-calendar" aria-hidden="true"></i> Date Field
+										</a> <th:block
+												th:replace="@{/admin/items/dateField} :: modal('dateid')"></th:block>
+										</li>
+										<li style="list-style: none; padding-top: 2px;" class="list-item"><a
+											class="btn btn-primary btn-block bg-secondary"
+											id="list-settings-list" data-bs-toggle="list"
+											style="font-size: 20px; background-color: #EDF2F7;"
+											href="#radioid" role="tab" data-toggle="modal"
+											data-target="#radioid" aria-controls="list-settings"
+											th:href="@{/admin/items/addRadiobutton}"> <i
+												class="fa fa-dot-circle-o" aria-hidden="true"></i> Radio
+												Group
+										</a> <th:block
+												th:replace="@{/admin/items/radioButton} :: modal('radioid')"></th:block>
+										</li>
+
+										<li style="list-style: none; padding-top: 2px;"
+											class="list-item"><a
+											class="btn btn-primary btn-block bg-secondary"
+											id="list-settings-list" data-bs-toggle="list"
+											style="font-size: 20px; background-color: #EDF2F7;"
+											href="#checkboxid" th:href="@{/admin/items/addCheckbox}"
+											role="tab" data-toggle="modal" data-target="#checkboxid"
+											aria-controls="list-settings"> <i
+												class="fa fa-check-square-o" aria-hidden="true"></i>
+												Checkbox
+										</a> <th:block
+												th:replace="@{/admin/items/checkboxGroup} :: modal('checkboxid')"></th:block>
+										</li>
+										<li style="list-style: none; padding-top: 2px;" class="list-item"><a
+											class="btn btn-primary btn-block bg-secondary"
+											id="list-settings-list" data-bs-toggle="list"
+											style="font-size: 20px; background-color: #EDF2F7;"
+											href="#numberid" th:href="@{/admin/items/addNumber}"
+											role="tab" data-toggle="modal" data-target="#numberid"
+											aria-controls="list-settings"> <i
+												class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+												Number
+										</a> <th:block
+												th:replace="@{/admin/items/number} :: modal('numberid')"></th:block>
+										</li>
+
+										<li style="list-style: none; padding-top: 2px;"
+											class="list-item"><a
+											class="btn btn-primary btn-block bg-secondary"
+											id="list-settings-list" data-bs-toggle="list"
+											href="#selectid'"
+											style="font-size: 20px; background-color: #EDF2F7;"
+											role="tab" data-toggle="modal" data-target="#selectid"
+											aria-controls="list-settings"> <i
+												class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+												Select
+										</a> <th:block
+												th:replace="@{/admin/items/select} :: modal('selectid')">
+											</th:block></li>
+										
+										<li style="list-style: none; padding-top: 2px;" class="list-item"><a
+											class="btn btn-primary btn-block bg-secondary"
+											id="list-settings-list" data-bs-toggle="list"
+											style="font-size: 20px; background-color: #EDF2F7;"
+											href="#fileid" role="tab" data-toggle="modal"
+											th:href="@{/admin/items/addFile}" data-target="#fileid"
+											aria-controls="list-settings"> <i class="fa fa-file"
+												aria-hidden="true"></i> File
+										</a> <th:block
+												th:replace="@{/admin/items/file} :: modal('fileid')">
+											</th:block></li>
+
+										<li style="list-style: none; padding-top: 2px;"
+											class="list-item"><a class="btn  btn-block bg-secondary"
+											id="list-settings-list" data-bs-toggle="list"
+											style="font-size: 20px; background-color: #EDF2F7;"
+											href="#list-settings" role="tab" data-toggle="modal"
+											data-target="#" aria-controls="list-settings"> <i
+												class="fa fa-minus" aria-hidden="true"></i> Button
+										</a></li>
+									</ul>
+
+
+								</div>
+								<!-- /.card-body -->
+							</div>
+							<!-- /.card -->
+
+
+							<!-- /.card -->
+						</div>
+
+
+
+
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+
+
+
+		</div>
+	</div>
+</body>
+</html>

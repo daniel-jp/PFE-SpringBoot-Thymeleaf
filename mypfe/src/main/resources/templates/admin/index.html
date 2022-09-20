@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/admin/admin_layout}">
+<head>
+<meta charset="UTF-8" />
+<title>Spring Boot Thymeleaf Application - Bootstrap Date Time
+	Picker</title>
+
+<link th:rel="stylesheet"
+	th:href="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css}" />
+<link th:rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+<link th:rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.11.2/css/all.css} " />
+</head>
+<body>
+
+	<!-- Navigation -->
+
+
+	<div layout:fragment="content">
+
+		<div class="container">
+
+			<div class="container">
+				<div class="card-deck">
+					<div class="card">
+						<div class="card-header">
+							<h3>Add Items</h3>
+
+						</div> 
+
+
+						<div class="card-body">
+
+							<form method="post" action="#" th:action="@{/admin/save}" th:object="${event}">
+
+
+								<div class="form-group">
+									<label>Label:</label>
+									<div class="input-group date" id="datetimepicker1"
+										data-target-input="nearest">
+										<input type="text" class="form-control" th:field="*{label}"
+											id="date" placeholder="Label" />
+
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="description">Name:</label> <input type="text"
+										id="name" placeholder="Name" class="form-control"
+										th:field="*{name}" autocomplete="off" />
+								</div>
+								<div class="form-group">
+									<label for="description">Value:</label> <input type="text"
+										id="value" placeholder="value" class="form-control"
+										th:field="*{value}" autocomplete="off" />
+								</div>
+
+
+
+								<div class="form-group">
+									<label for="date">Type:</label>
+									<div class="input-group date" id="datetimepicker1"
+										data-target-input="nearest">
+										<select class="form-control" th:fielde="*{type}" name="type">
+											<option th:value="text" th:text="text"></option>
+											<option th:value="email" th:text="email"></option>
+											<option th:value="password" th:text="password"></option>
+											<option th:value="tel" th:text="tel"></option>
+										</select>
+
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-3 col-form-label">Placeholder</label>
+									<div class="col-sm-8">
+										<input type="text" th:field="*{placeholder}"
+											class="form-control" th:name="placeholder"
+											placeholder="Type here your textname" />
+									</div>
+								</div>
+								
+								<div id="myDiv" class="modal-footer justify-content-between">
+												
+													<button type="reset" class="btn btn-default bg-dark">Clear</button>
+													
+													<button type="submit" class="btn btn-primary" name="addRow">
+														<i class="fa fa-plus-circle" aria-hidden="true"></i>
+														Create item
+													</button>
+
+												</div>
+                  </form>
+
+						</div>
+
+					</div>
+					
+					<div class="card" th:fragment="content">
+						<div class="card-body">
+
+							<div class="card-header">
+								<h2 class="mt-5 mb-4">Event resultat</h2>
+							</div>
+
+							<div class="input-group" th:each="row ,stat: ${event}"
+								th:if="${stat.index} &lt;  3">
+
+								<div class="col-sm-8 row">
+									<span id="label" th:value="${row.label}" th:text="${row.label}">
+										Input name</span>
+									<div class="input-group mb-3">
+										<input class="form-control" th:type="${row.type}"
+											th:name="${row.name}" th:placeholder="${row.placeholder}"
+											th:value="${row.value}" />
+
+									</div>
+								</div>
+								
+								<button type="submit" class="btn btn-primary" name="addRow">
+												<i class="fa fa-plus-circle" aria-hidden="true"></i> Add  </button>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+ </div>
+				<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+				<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+				<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+				<script th:src="@{/assets/moment/moment.min.js}"></script>
+				<script
+					th:src="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js}"></script>
+
+			</div>
+		</div>
+</body>
+</html>
+
+
